@@ -1,4 +1,4 @@
-<footer>
+		<footer>
 			<!--A PROPOS-->
 			<a href="vue/aPropos.html">A Propos</a>
 			<a href="vue/contact.html">Contact</a>
@@ -6,6 +6,5 @@
 		</footer>
 
 	</body>
-
 
 </html>
