@@ -1,15 +1,15 @@
 <main>
 			<section id="voiture">
                 <a href="vue/citroen.html"> 
-					<img src="img/citroen.png" class="img_accueil" alt=""> Citroen
+					<img src="img/logoCitroen.png" class="img_accueil" alt=""> Citroen
 				</a>
 
                 <a href="vue/renault.html"> 
-					<img src="img/renault.png" class="img_accueil" alt=""> Renault
+					<img src="img/logoRenault.png" class="img_accueil" alt=""> Renault
 				</a>
 
                 <a href="vue/peugeot.html"> 
-					<img src="img/peugeot.png" class="img_accueil" alt=""> Peugeot
+					<img src="img/logoPeugeot.png" class="img_accueil" alt=""> Peugeot
 				</a>
 			</section>
             
