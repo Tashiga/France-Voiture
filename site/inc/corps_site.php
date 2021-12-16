@@ -5,7 +5,7 @@
 				</a>
 
                 <a href="vue/renault.html"> 
-					<img src="img/logoRenault.png" class="img_accueil" alt=""> Renault
+					<img src="img/logoRenault.jpg" class="img_accueil" alt=""> Renault
 				</a>
 
                 <a href="vue/peugeot.html"> 
