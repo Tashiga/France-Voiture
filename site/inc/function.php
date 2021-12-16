@@ -2,7 +2,6 @@
 
 
 require_once("haut_site.php");
-require_once("corps_site.php");
 require_once("bas_site.php");
 
 class ModJoueurs {

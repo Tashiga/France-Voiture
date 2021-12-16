@@ -1,6 +1,8 @@
 <?php 
 //--------------------------------- AFFICHAGE HTML ---------------------------------//
- require_once("inc/haut_site.php"); ?>
+ require_once("inc/haut_site.php"); 
+ require_once("inc/initialisation.php");
+ ?>
 
 <form method="post" action="">
     <label for="pseudo">Pseudo</label><br>
