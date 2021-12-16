@@ -1,7 +1,7 @@
 <?php 
 //--------------------------------- AFFICHAGE HTML ---------------------------------//
- require_once("inc/haut_site.php"); 
- require_once("inc/initialisation.php");
+ require_once("../inc/haut_site.php"); 
+ require_once("../inc/initialisation.php");
  ?>
 
 <form method="post" action="">
@@ -24,4 +24,4 @@
     <input type="submit" name="inscription" value="S'inscrire">
 </form>
  
-<?php require_once("inc/bas_site.php"); ?>
+<?php require_once("../inc/bas_site.php"); ?>

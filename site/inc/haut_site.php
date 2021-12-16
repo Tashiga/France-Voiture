@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>FRANCE VOITURE</title>
-		<link href="inc/css/style.css" rel="stylesheet" type="text/css">
+		<link href="../inc/css/style.css" rel="stylesheet" type="text/css">
 		
 	</head>
 
@@ -13,25 +13,25 @@
 		<header>
 			<!--LOGO-->
             		<div id="logo">
-				<a href="initialisation.php"> 
-					<img src="img/logo.png" alt="logo" width="300">
+				<a href="accueil.php"> 
+					<img src="../inc/img/logo.png" alt="logo" width="300">
 				</a>
 			</div>
 			
 			<div class="utilisateur">
 				<!--AIDE-->
 				<a href="vue/aide.html"> 
-					<img src="img/aide.png" class="icone" alt=""> Aide
+					<img src="../inc/img/aide.png" class="icone" alt=""> Aide
 				</a>
 
 				<!--COMPTE-->
-				<a href="vue/connexion.html"> 
-					<img src="img/compte.png" class="icone" alt=""> Se connecter
+				<a href="inscription.php"> 
+					<img src="../inc/img/compte.png" class="icone" alt=""> Se connecter
 				</a>
 
 				<!--PANIER-->
 				<a href="vue/panier.html"> 
-					<img src="img/panier.png" class="icone" alt=""> Mon panier
+					<img src="../inc/img/panier.png" class="icone" alt=""> Mon panier
 				</a>
 			</div>
 			

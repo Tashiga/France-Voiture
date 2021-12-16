@@ -1,10 +1,8 @@
 <?php
+// require_once("haut_site.php");
+// require_once("bas_site.php");
 
-
-require_once("haut_site.php");
-require_once("bas_site.php");
-
-class ModJoueurs {
+class Fonction_sql {
 	
 	public function  __construct() {}
 
