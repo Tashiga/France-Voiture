@@ -16,7 +16,7 @@ session_start();
  
 
 //--------- CHEMIN ABSOLU
-define("RACINE_SITE","/site/");
+define("RACINE_SITE","/../mmsssiiieeeuuu");
  
 
 //--------- VARIABLES
@@ -24,4 +24,4 @@ $contenu = '';
  
 
 //--------- AUTRES INCLUSIONS
-require_once("function.php");
+// require_once("function.php");
