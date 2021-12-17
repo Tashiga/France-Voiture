@@ -20,17 +20,17 @@
 			
 			<div class="utilisateur">
 				<!--AIDE-->
-				<a href="vue/aide.html"> 
+				<a href="../vue/aide.php"> 
 					<img src="../inc/img/aide.png" class="icone" alt=""> Aide
 				</a>
 
 				<!--COMPTE-->
-				<a href="inscription.php"> 
+				<a href="../vue/inscription.php"> 
 					<img src="../inc/img/compte.png" class="icone" alt=""> Se connecter
 				</a>
 
 				<!--PANIER-->
-				<a href="vue/panier.html"> 
+				<a href="../vue/panier.php"> 
 					<img src="../inc/img/panier.png" class="icone" alt=""> Mon panier
 				</a>
 			</div>
@@ -46,9 +46,9 @@
             		<!--BARRE DE NAVIGATION-->
 			<nav>
 				<ul>
-					<li><a href="vue/citroen.html">Citroen</a></li>
-					<li><a href="vue/renault.html">Renault</a></li>
-					<li><a href="vue/peugeot.html">Peugeot</a></li>
+					<li><a href="../vue/citroen.php">Citroen</a></li>
+					<li><a href="../vue/renault.php">Renault</a></li>
+					<li><a href="../vue/peugeot.php">Peugeot</a></li>
 				</ul>
 			</nav>	
   		</header>

@@ -5,15 +5,15 @@ require_once("../inc/haut_site.php");
 ?>
 <main>
 			<section id="voiture">
-                <a href="vue/citroen.html"> 
+                <a href="citroen.php"> 
 					<img src="img/logoCitroen.png" class="img_accueil" alt=""> Citroen
 				</a>
 
-                <a href="vue/renault.html"> 
+                <a href="renault.php"> 
 					<img src="img/logoRenault.jpg" class="img_accueil" alt=""> Renault
 				</a>
 
-                <a href="vue/peugeot.html"> 
+                <a href="peugeot.php"> 
 					<img src="img/logoPeugeot.png" class="img_accueil" alt=""> Peugeot
 				</a>
 			</section>
@@ -25,7 +25,7 @@ require_once("../inc/haut_site.php");
                         en particulière pour votre véhicule ? inscrivez-vous ci-dessous,
                         pour accéder aux différents articles, vendues justes pour vous.
                     </p>
-                    <a href="vue/inscription.html">M'inscrire gratuitement</a>
+                    <a href="inscription.php">M'inscrire gratuitement</a>
                 </div>
 
                 <div id="vendeur">
@@ -33,7 +33,7 @@ require_once("../inc/haut_site.php");
                     <p>Vous souhaitez vendre des piéces de voiture plus rapidement ?
                         Inscrivez-vous ci-dessous, pour les vendres.
                     </p>
-                    <a href="vue/inscription.html">M'inscrire gratuitement</a>
+                    <a href="inscription.php">M'inscrire gratuitement</a>
                 </div>
 				
 			</section>
@@ -52,7 +52,4 @@ require_once("../inc/haut_site.php");
 
 		</main>
 
-<?php
-require_once("../inc/bas-site.php");
-?>
-
+<?php require_once("../inc/bas_site.php"); ?>
