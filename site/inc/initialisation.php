@@ -3,7 +3,7 @@
 //--------- BDD
 //$mysqli = new mysqli("localhost", "nomUtilisateur", "motDePasse", "site");
 //a l'iut 
-$mysqli = new PDO("mysql:host=database-etudiants.iut.univ-paris8.fr;dbname=dutinfopw201659", "dutinfopw201659", "vupuqyja");
+//$mysqli = new PDO("mysql:host=database-etudiants.iut.univ-paris8.fr;dbname=dutinfopw201659", "dutinfopw201659", "vupuqyja");
 //si erreur a la connexion
 //if ($mysqli->connect_error) die('Un problème est survenu lors de la tentative de connexion à la BDD : ' . $mysqli->connect_error);
 
