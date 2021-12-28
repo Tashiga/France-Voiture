@@ -3,7 +3,7 @@
 require_once("../inc/initialisation.php");
 require_once("../inc/haut_site.php"); 
 ?>
-		<main style="height:auto; padding:50px; padding-top:10px; padding-bottom:10px">
+		<main style="height:auto; padding:50px; padding-top:10px; padding-bottom:50px">
 			<section id="sectionAide">
 				<H1 style="color:#DC3030">Vous avez besoin d'aide ?</H1>
 				<div id="tableauAide">
