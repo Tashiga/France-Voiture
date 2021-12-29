@@ -3,7 +3,12 @@ body{
     font-family: sans-serif;
 }
 
-/*header*/
+body.erreur a{
+    text-transform: uppercase;
+    color: red;
+    size: 50px;
+}
+/***************************************HEADER***************************************/
 header{
     display: block;
     position: absolute;
@@ -89,7 +94,7 @@ header nav ul li a{
 	text-transform: uppercase;
     color: white;
 }
-/*Main*/
+/***************************************MAIN***************************************/
 
 main{
     display: block;
@@ -101,25 +106,17 @@ main{
     background-color: white;
 }
 
-/*Connexion*/
-
-#sectionConnexion {
-    display: block;
-    position: absolute;
-    top: 15px;
-    left: 300px;
-    bottom: 15px;
-    right: 300px;
-    background-color: green;
-}
-
-#connexion {
-    display: block;
-    position: absolute;
+main div{
+    margin-top: 10px;
+    margin-bottom: 50px;
+    padding-left: 10px;
 }
 
 
-/*footer*/
+/*****Connexion*****/
+
+
+/***************************************FOOTER***************************************/
 footer{
     display: block;
     position: absolute;

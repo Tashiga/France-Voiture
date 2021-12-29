@@ -12,7 +12,7 @@
 	<body>
 		<header>
 			<!--LOGO-->
-            		<div id="logo">
+            <div id="logo">
 				<a href="accueil.php"> 
 					<img src="../inc/img/logo.png" alt="logo" width="300">
 				</a>
@@ -25,7 +25,7 @@
 				</a>
 
 				<!--COMPTE-->
-				<a href="../vue/inscription.php"> 
+				<a href="../vue/connexion.php"> 
 					<img src="../inc/img/compte.png" class="icone" alt=""> Se connecter
 				</a>
 
