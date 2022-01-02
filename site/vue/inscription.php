@@ -13,7 +13,7 @@
             </br>
 
             <label class="contenu" for="prenom">prénom :</label><br>
-            <input type="text" class="aRemplir" id="prenom" name="prenom" maxlength="20" placeholder="votre nom" pattern="[a-zA-Z0-9-_.]{1,20}" title="caractères acceptés : a-zA-Z0-9-_." required="required"/></br>
+            <input type="text" class="aRemplir" id="prenom" name="prenom" maxlength="20" placeholder="votre prenom" pattern="[a-zA-Z0-9-_.]{1,20}" title="caractères acceptés : a-zA-Z0-9-_." required="required"/></br>
             </br>
 
             <label class="contenu" for="email">E-mail :</label><br>

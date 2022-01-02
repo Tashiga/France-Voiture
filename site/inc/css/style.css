@@ -234,6 +234,41 @@ main{
     font-weight: bold;
 }
 
+/*Aide*/
+
+#sectionAide h1{
+    color:#DC3030;
+    text-align: center;
+}
+
+#sectionAide a{
+    text-decoration: none;
+    color:#DC3030;
+}
+
+#sectionAide table{
+    border: 1px solid #333;
+}
+
+#sectionAide table thead{
+    background-color: #333;
+    color: #fff;
+}
+
+#sectionAide .gauche{
+    border: 1px solid #333; 
+    text-align:center;
+}
+
+#sectionAide .droite{
+    border: 1px solid #333; 
+    text-align:justify;
+}
+
+#sectionAide #table2{
+    margin-top: 20px;
+    margin-left: 200px;
+}
 
 /*Connexion*/
 
@@ -348,7 +383,10 @@ main{
 }
 
 /*Panier*/
-
+#sectionAPanier h1{
+    text-align: center;
+    color: #DC3030;
+}
 #sectionAPanier a{
     text-decoration: none;
     color:black;
@@ -357,6 +395,79 @@ main{
     padding: 5px;
     border: 3px solid #e0dfde;
     box-shadow: 3px 5px 5px #696868;
+}
+
+/*Contact*/
+
+#sectionContact{
+    margin:50px;
+    padding-left:200px;
+    padding-right:200px;
+    text-align: justify;
+}
+
+#sectionContact H1{
+    text-align: center;
+    color:#DC3030;
+    margin-bottom: 50px;
+}
+
+#sectionContact .toBold{
+    font-weight: bolder;
+}
+
+#sectionContact #num{
+    margin-top: 50px;
+    margin-bottom: 0%;
+    padding-bottom: 0%;
+}
+
+#sectionContact #mail{
+    margin-top: 0%;
+    padding-top: 0%;
+    margin-left:165px;
+}
+
+#sectionContact #phrase1{
+    margin-top: 50px;
+    margin-bottom: 0%;
+    padding-bottom: 0%;
+}
+
+#sectionContact #phrase2{
+    margin-top: 0%;
+    padding-top: 0%;
+}
+
+#sectionContact H3{
+    margin:20px;
+    margin-top:50px;
+    margin-left:50px;
+}
+
+#sectionContact #obtenirAide{
+    display:inline-block;
+    margin-left:42%;
+    padding:20px;
+    background-color: #DC3030;
+    color:white;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+#sectionContact #table{
+    margin-left: 150px;
+}
+
+#sectionContact .caseTab{
+    border:3px solid #1E2754;
+    text-align:center; 
+    background-color:#e4e4e4;
+    border-radius: 10px;
+}
+
+#sectionContact .sousTab {
+    width: 100%;
 }
 
 /*footer*/
