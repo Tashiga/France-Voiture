@@ -11,20 +11,21 @@ require_once("../inc/haut_site.php");
 					<div id="connexion"> 
 						<h1 id="titreConnex" class="capitalConnex">Connexion</h1>
 						<!-- mail -->
-						<input class="inputConnex" type="email" name="mail" size="33" maxlength="50" pattern=“[A-Za-Z0-9]{5}” placeholder="E-mail"/>
+						<input class="inputConnex" type="email" name="mail" size="33" maxlength="50" pattern=“[A-Za-Z0-9]{5}” placeholder="E-mail" required="required"/>
 						<!-- mot de passe -->
-						<input class="inputConnex" type="password" name="password" size="33" maxlength="50" pattern=“[A-Za-Z0-9]{5}” placeholder="Mot de passe"/>
+						<input class="inputConnex" type="password" name="password" size="33" maxlength="50" pattern=“[A-Za-Z0-9]{5}” placeholder="Mot de passe" required="required"/>
 						<div id="isVendeur">
-							<input type="checkbox" name="vendeur" />
+							<input type="checkbox" name="vendeur" required="required"/>
 							<p>Je suis un vendeur</p>
 						</div>
 						<button name="Connexion" type="submit" class="capitalConnex" id="boutonConnex">connexion</button>
 					</div> 
-					<div id="inscription">
-						<p class="capitalConnex">pas de compte ?</p>
-						<a href="inscription.php" class="capitalConnex">s'inscrire gratuitement</a>
-					</div>
 				</form >
+				<div id="inscription">
+					<p class="capitalConnex">pas de compte ?</p>
+					<a href="inscription.php" class="capitalConnex">s'inscrire gratuitement</a>
+				</div>
+				
 			</section>
 
 

@@ -18,7 +18,7 @@ require_once("../inc/haut_site.php");
                                     <label for="sujet">Sujet du formulaire :  </label></br>
                                 </td>
                                 <td style="padding:5px; padding-top:20px; padding-right:20px;">
-                                    <select id="sujet" placeholder="autre sujet">
+                                    <select id="sujet" placeholder="autre sujet" required="required">
                                         <option value="" disabled selected>-------------- choisir un option --------------</option>
                                         <option value="non-recu">Je n'ai pas encore reçu mon article </option>
                                         <option value="endommange">Mon article est endommagé </option>
@@ -33,7 +33,7 @@ require_once("../inc/haut_site.php");
                                     <label for="autre-sujet">Si vous avez choisi "autres", merci de nous indiquer ici :</label></br>
                                 </td>
                                 <td style="padding:5px; padding-right:20px;">
-                                    <input type="text" name="autre-sujet" size="60" maxlength="50" pattern=“[A-Za-Z0-9]{5}” placeholder="autre sujet" style="text-align:center"/>
+                                    <input type="text" name="autre-sujet" size="60" maxlength="50" pattern=“[A-Za-Z0-9]{5}” placeholder="autre sujet" style="text-align:center" />
                                 </td>
                             </tr>
                             <tr>
@@ -41,7 +41,7 @@ require_once("../inc/haut_site.php");
                                     <label for="verif-adresse">S'il s'agit d'une commande, votre adresse de livraison est-elle correcte ?</label></br> 
                                 </td>
                                 <td style="padding:5px; padding-right:20px;">
-                                    <input type="radio" name="verif-adresse" value="true" checked>Oui
+                                    <input type="radio" name="verif-adresse" value="true"  checked>Oui
                                     <input type="radio" name="verif-adresse" value="false">Non
                                 </td>
                             </tr>
@@ -50,7 +50,7 @@ require_once("../inc/haut_site.php");
                                     <label for="nouvelle-adresse">Si adresse de livraison est incorrecte, veuillez nous donner votre adresse correcte : </label></br>
                                 </td>
                                 <td style="padding:5px; padding-right:20px;">
-                                    <input type="text" name="nouvelle-adresse" size="100" maxlength="90" pattern=“[A-Za-Z0-9]{5}” placeholder="adresse si incorrecte" style="text-align:center"/>
+                                    <input type="text" name="nouvelle-adresse" size="100" maxlength="90" pattern=“[A-Za-Z0-9]{5}” placeholder="adresse si incorrecte" style="text-align:center" />
                                 </td>
                             </tr>
                             <tr>
@@ -58,7 +58,7 @@ require_once("../inc/haut_site.php");
                                     <label for="probleme">Veuillez nous décrire le problème que vous rencontrez ici : </label></br>
                                 </td>
                                 <td style="padding:5px; padding-right:20px;">
-                                    <textarea name="probleme" rows="5" cols="87" placeholder="votre message"></textarea>
+                                    <textarea name="probleme" rows="5" cols="87" placeholder="votre message" required="required"></textarea>
                                 </td>
                             </tr>
                             <tr>
@@ -66,7 +66,7 @@ require_once("../inc/haut_site.php");
                                     <label for="telephone">Veuillez nous laisser un numéro de téléphone sur lequelle nous pouvons vous joindre : </label></br>
                                 </td>
                                 <td style="padding:5px; padding-right:20px;">
-                                    <input type="tel" name="telephone" size="33" maxlength="10" pattern="[0]{1}[0-9]{9}" placeholder="télèphone" style="text-align:center"/>
+                                    <input type="tel" name="telephone" size="33" maxlength="10" pattern="[0]{1}[0-9]{9}" placeholder="télèphone" style="text-align:center" required="required"/>
                                 </td>
                             </tr>
                             <tr>
@@ -74,7 +74,7 @@ require_once("../inc/haut_site.php");
                                     <label for="mail">Veuillez saisir votre mail : </label></br>
                                 </td>
                                 <td style="padding:5px; padding-right:20px;">
-                                    <input type="email" name="mail" size="33" maxlength="50" pattern=“[A-Za-Z0-9]{5}” placeholder="e-mail" style="text-align:center"/>
+                                    <input type="email" name="mail" size="33" maxlength="50" pattern=“[A-Za-Z0-9]{5}” placeholder="e-mail" style="text-align:center" required="required"/>
                                 </td>
                             </tr>
                             <tr>
@@ -82,7 +82,7 @@ require_once("../inc/haut_site.php");
                                     <label for="condition">J'accepte les conditions et souhaite être contacté par mail ou par Telephone</label>
                                 </td>
                                 <td style="padding:5px; padding-right:20px;"> 
-                                    <input type="checkbox" name="condition" />
+                                    <input type="checkbox" name="condition" required="required" />
                                 </td>
                             </tr>
                             <tr>
