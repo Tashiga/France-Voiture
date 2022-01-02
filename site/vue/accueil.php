@@ -58,7 +58,7 @@ require_once("../inc/haut_site.php");
                         un moyen de vous faire rembourser.
                     </p>
                     <p>
-                        remplissez le formulaire <a href="formulaire.php" style="text-decoration:none;font-weight:bold;color:red">ici</a>
+                        remplissez le formulaire <a href="formulaire.php" id="formulaire">ici</a>
                     </p>
                 </section>
             </section>

@@ -96,6 +96,11 @@ header nav ul li a{
 	text-transform: uppercase;
     color: white;
 }
+
+header nav a:hover{
+    color:#1E2754;
+    font-weight: bold;
+}
 /*Main*/
 
 main{
@@ -114,6 +119,11 @@ main{
 #sectionAccueil #voiture{
     display:inline-block; 
     width:100%;
+}
+
+#sectionAccueil a:hover{
+    color:#1E2754;
+    font-weight: bold;
 }
 
 #sectionAccueil #voiture #citroen{
@@ -234,6 +244,17 @@ main{
     font-weight: bold;
 }
 
+#sectionAccueil #intro #formulaire{
+    text-decoration:none;
+    font-weight:bold;
+    color:#1E2754;
+}
+
+#sectionAccueil #intro #formulaire:hover{
+    color:#DC3030;
+    font-weight: bold;
+}
+
 /*Aide*/
 
 #sectionAide h1{
@@ -243,7 +264,12 @@ main{
 
 #sectionAide a{
     text-decoration: none;
+    color:black;
+}
+
+#sectionAide a:hover{
     color:#DC3030;
+    font-weight: bold;
 }
 
 #sectionAide table{
@@ -280,6 +306,11 @@ main{
     bottom: 10px;
     right: 300px;
     background-color: #e4e4e4;
+}
+
+#sectionConnexion a:hover{
+    font-weight: bold;
+    color:#DC3030;
 }
 
 #connexion {
@@ -323,6 +354,11 @@ main{
     text-align: center;
     color:white;
     background-color: #1E2754;
+}
+
+#boutonConnex:hover{
+    font-weight: bold;
+    color: #DC3030;
 }
 
 #inscription{
@@ -382,6 +418,11 @@ main{
     text-transform: uppercase;
 }
 
+#sectionInscription #boutonInscription:hover{
+    font-weight: bold;
+    color:#DC3030;
+}
+
 /*Panier*/
 #sectionAPanier h1{
     text-align: center;
@@ -397,6 +438,11 @@ main{
     box-shadow: 3px 5px 5px #696868;
 }
 
+#sectionAPanier a:hover{
+    font-weight: bold;
+    color:#DC3030;
+}
+
 /*Contact*/
 
 #sectionContact{
@@ -404,6 +450,10 @@ main{
     padding-left:200px;
     padding-right:200px;
     text-align: justify;
+}
+
+#sectionContact a:hover{
+    font-weight: bold;
 }
 
 #sectionContact H1{
@@ -470,6 +520,22 @@ main{
     width: 100%;
 }
 
+/*A propos*/
+
+#sectionApropos a{
+    text-decoration:none; 
+    color:black;
+}
+
+#sectionApropos a:hover{
+    font-weight: bold;
+    color:#DC3030;
+}
+
+#sectionApropos h4 a:hover{
+    color:red; 
+}
+
 /*footer*/
 footer{
     display: block;
@@ -487,4 +553,8 @@ footer a {
     text-decoration: none;
     text-transform: uppercase;
     color:#1E2754;
+}
+
+footer a:hover{
+    font-weight: bold;
 }
