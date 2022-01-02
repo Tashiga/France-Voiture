@@ -171,7 +171,7 @@ main{
 
 #sectionAccueil #comptes{
     display:inline-block; 
-    width:90%; 
+    width:91.5%; 
     background-color:#e4e4e4; 
     margin-top:-3px;
     margin:30px;
@@ -347,6 +347,17 @@ main{
     text-transform: uppercase;
 }
 
+/*Panier*/
+
+#sectionAPanier a{
+    text-decoration: none;
+    color:black;
+    background-color:#e0dfde;
+    border-radius: 20px;
+    padding: 5px;
+    border: 3px solid #e0dfde;
+    box-shadow: 3px 5px 5px #696868;
+}
 
 /*footer*/
 footer{
