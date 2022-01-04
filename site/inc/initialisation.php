@@ -3,12 +3,16 @@
 //--------- BDD
 
 // chez nous
-$mysqli = new mysqli("localhost", "root", "");
+//$mysqli = new mysqli("localhost", "root", "");
 // sur mon wamp c'est le nom que j'ai donné à ma base mettez celui que vous avez donné vous
-$mysqli->select_db("france-voiture");
+//$mysqli->select_db("france-voiture");
 
 //a l'iut 
+//sashtiga
 //$mysqli = new PDO("mysql:host=database-etudiants.iut.univ-paris8.fr;dbname=dutinfopw201659", "dutinfopw201659", "vupuqyja");
+//natacha
+$mysqli = new PDO("mysql:host=database-etudiants.iut.univ-paris8.fr;dbname=dutinfopw201656", "dutinfopw201656", "gejuzage");
+
 //si erreur a la connexion
 if ($mysqli->connect_error) die('Un problème est survenu lors de la tentative de connexion à la BDD : ' . $mysqli->connect_error);
 
@@ -25,7 +29,7 @@ session_start();
  
 
 //--------- VARIABLES
-$contenu = '';
+$message = '';
  
 
 //--------- AUTRES INCLUSIONS
