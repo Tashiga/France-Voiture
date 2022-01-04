@@ -3,8 +3,10 @@
 require_once("../inc/initialisation.php");
 require_once("../inc/haut_site.php"); 
 ?>
-		  <main>
-			<H1>Citroen</H1>
-		</main>
+<main>
+	<section id="sectionCitroen">
+		<H1>Citroen</H1>
+	</section>
+</main>
 		
 <?php require_once("../inc/bas_site.php"); ?>

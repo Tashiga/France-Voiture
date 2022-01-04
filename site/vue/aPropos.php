@@ -9,7 +9,7 @@ require_once("../inc/haut_site.php");
 			<p>Nous sommes 3 étudiants (Sasirajah Sashtiga, Xue Natacha et Youssef Nessim Abanoub),
 				 en deuxieme année de DUT en Informatique, à l'IUT de Montreuil.
 				</br>Nous avons décidé pour un projet scolaire, de créer un site web pour une entreprise
-				 : <a href="accueil.php" style="text-decoration:none; color:black;font-weight:bold">France Voiture</a>.
+				 : <a href="accueil.php">France Voiture</a>.
 				</br>Vous trouverez également le cahier des charges que nous avions creer ainsi que tous documents réalisés pour ce projet ci-dessous :
 			</p>
 			<table style="border: 1px solid #333; margin-left:500px">
@@ -40,7 +40,7 @@ require_once("../inc/haut_site.php");
 			<p>Elle offre de nombreux services comme : suivre vos commandes, échanger avec les vendeurs, consulter les dernières actualités de France Voiture, ... </p>
 			
 			<p>Notre objectif est de permettre à nos clients de vendre et d'acheter des pièces détachées de voiture de manière rapide et sécurisé.</p>
-			<H4><a href="aide.php" style="color:red; text-decoration:none">Besoin d'aide ?</a></H4>
+			<H4><a href="aide.php">Besoin d'aide ?</a></H4>
 			<p>En cas d'urgence, veuillez nous contacter <a href = "contact.php">ici</a> ou a remplir un formulaire <a href="formulaire.php">ici</a>.</p>
 		</section>
 	</main>
