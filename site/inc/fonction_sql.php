@@ -19,7 +19,7 @@ class Fonction_sql {
 	 
 	//fonction qui permet de faciliter le debug en l'affichant
 	function debug($var, $mode = 1){
-	    echo '<div style="background: orange; padding: 5px; float: right; clear: both; ">';
+	    echo '<div style="position:absolute; top:10px; right:15px; background: orange; padding: 5px; float: right; clear: both; ">';
 	    $trace = debug_backtrace();
 	    $trace = array_shift($trace);
 	    echo 'Debug demandé dans le fichier : $trace[file] à la ligne $trace[line].';
