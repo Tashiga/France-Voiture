@@ -10,17 +10,18 @@ if($_POST)
 		$message = "<div class='erreur'>Entrez une adresse email valide.</div>";
 	}
     else {
-        $membre = $fonction_sql->executeRequete("SELECT * FROM client WHERE email='$_POST[email]'");
+        $table = $_POST['VendeurAcheteur'];
+        $membre = $fonction_sql->executeRequete("SELECT * FROM $table WHERE email='$_POST[email]'");
         if($membre->num_rows > 0) {
             $message= "<div class='erreur'>Vous avez déjà créé un compte avec cette adresse email.</div>";
         }
         else {
-            // $_POST['mdp'] = md5($_POST['mdp']);
+            $_POST['mdp'] = md5($_POST['mdp']);
             foreach($_POST as $indice => $valeur)
             {
                 $_POST[$indice] = htmlEntities(addSlashes($valeur));
             }
-            $fonction_sql->executeRequete("INSERT INTO client(pseudo, email, mdp) VALUES ('$_POST[pseudo]', '$_POST[email]', '$_POST[mdp]')");
+            $fonction_sql->executeRequete("INSERT INTO $table(pseudo, email, mdp) VALUES ('$_POST[pseudo]', '$_POST[email]', '$_POST[mdp]')");
             $message= "<div class='erreur'>Inscription réussie.</div>";
         }
     }
@@ -50,8 +51,8 @@ require_once("../inc/haut_site.php");
             <input type="password" id="confmdp" name="mdp" required="required"><br><br>
                 
             <label for="VendeurAcheteur">Vendeur ou Acheteur ?</label><br>
-            <input name="VendeurAcheteur" value="v" checked="" type="radio">Je souhaite vendre<br>
-            <input name="VendeurAcheteur" value="a" type="radio">Je souhaite acheter<br><br>
+            <input type="radio" name="VendeurAcheteur" value="vendeur" checked="" >Je souhaite vendre<br>
+            <input type="radio" name="VendeurAcheteur" value="acheteur" >Je souhaite acheter<br><br>
                         
             <input type="submit" name="inscription" value="S'inscrire">
         </form>
