@@ -50,7 +50,7 @@ require_once("../inc/initialisation.php");
 <?php require_once("../inc/bas_site.php"); ?>
 
 <?php
-//--------------------------------------traitement php----------------------//
+//--------------------------------------traitement php--------------------------------------------//
 
 
 //detecte lorsque l'internaute clique sur le bouton pour s'inscrire

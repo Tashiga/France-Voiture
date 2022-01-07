@@ -31,5 +31,12 @@ class Fonction_sql {
 	    }
 	    echo '</div>';
 	}
+
+	function internauteEstConnecte() { 
+		if(!isset($_SESSION['client'])) 
+			return false;
+		else 
+			return true;
+	}
 }
 ?>
