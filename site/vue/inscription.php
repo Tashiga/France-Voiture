@@ -1,9 +1,14 @@
 <?php
 require_once("../inc/initialisation.php");
 
+if($fonction_sql->utilisateurEstConnecte()){
+    header("location:profil.php");
+}
+else {
 
 //--------------------------------- AFFICHAGE HTML ---------------------------------//
  require_once("../inc/haut_site.php"); 
+
  ?>
 
 <main style="height:120%; background-color:#e4e4e4">
@@ -47,9 +52,12 @@ require_once("../inc/initialisation.php");
     </section>
 </main>
  
-<?php require_once("../inc/bas_site.php"); ?>
-
 <?php
+
+}
+
+ require_once("../inc/bas_site.php"); 
+ 
 //--------------------------------------traitement php--------------------------------------------//
 
 
