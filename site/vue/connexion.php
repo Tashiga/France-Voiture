@@ -39,19 +39,32 @@ require_once("../inc/haut_site.php");
 
 <?php
 //--------------------------------------traitement php--------------------------------------------//
+
+//si l'user veut se deconnecter
+if(isset($_GET['action']) && $_GET['action'] == 'deconnexion')
+{
+    session_destroy();
+}
+
+//si l'user est deja connecte
+if($fonction_sql->utilisateurEstConnecte())
+{
+    header("location:profil.php");
+}
+
+//lorsque user clique sur connexion pour se connecter
 if($_POST) {
 	$fonction_sql->debug($_POST);
+	//s'il s'agit d'un vendeur
 	if($_POST['vendeur']=='Yes') {
 		$table = 'vendeur';
 	}
 	else {
 		$table = 'client';
 	}
-
-	$contenu .=  "email : " . $_POST['email'] . "<br>mdp : " .  $_POST['password'] . "";
-	$resultat = $fonction_sql->executeRequete("SELECT * FROM client WHERE email='$_POST[email]'");
-	$resultatVendeur = $fonction_sql->executeRequete("SELECT * FROM vendeur WHERE email='$_POST[email]'");
-	if($resultat->num_rows != 0 || $resultatVendeur->num_rows != 0) {
+	//$contenu .=  "email : " . $_POST['email'] . "<br>mdp : " .  $_POST['password'] . "";
+	$resultat = $fonction_sql->executeRequete("SELECT * FROM $table WHERE email='$_POST[email]'");
+	if($resultat->num_rows != 0) {
 		//$contenu .=  '<div style="background:green; position:absolute;">mail connu!</div>';
 		$client = $resultat->fetch_assoc();
 		if($client['mdp'] == $_POST['password']) {
@@ -60,17 +73,24 @@ if($_POST) {
 				if($indice != 'mdp') {
 					$_SESSION['client'][$indice] = $element;
 				}
+				//ajouter dans session un attribut statut
+				if($table=='vendeur') {
+					$_SESSION['client']['statut'] = 1;
+				}
+				else {
+					$_SESSION['client']['statut'] = 0;
+				}
 			}
+			//diriger vers la page profil
 			header("location:profil.php");
 		}
 		else {
-			$contenu .= '<div class="erreur">Erreur de MDP</div>';
+			$contenu .= '<div class="erreur">Erreur de MDP ' . $_POST['password'] .'</div>';
 		}       
 	}
 	else {
 		$contenu .= '<div class="erreur">Erreur de pseudo</div>';
 	}
-	
 	echo $contenu;
 }
 

@@ -19,20 +19,53 @@
 			</div>
 			
 			<div class="utilisateur">
-				<!--AIDE-->
-				<a href="../vue/aide.php"> 
-					<img src="../inc/img/aide.png" class="icone" alt=""> Aide
-				</a>
+				<?php 
 
-				<!--COMPTE-->
-				<a href="../vue/connexion.php"> 
-					<img src="../inc/img/compte.png" class="icone" alt=""> Se connecter
-				</a>
+				//si une session existe
+				if($fonction_sql->utilisateurEstConnecte()){
+					echo '<!--AIDE-->
+					<a href="../vue/aide.php"> 
+						<img src="../inc/img/aide.png" class="icone" alt=""> Aide
+					</a>
 
-				<!--PANIER-->
-				<a href="../vue/panier.php"> 
-					<img src="../inc/img/panier.png" class="icone" alt=""> Mon panier
-				</a>
+					<!--COMPTE-->
+					<a href="../vue/profil.php"> 
+						<img src="../inc/img/compte.png" class="icone" alt=""> Mon profil
+					</a>';
+					
+					//si cette session appartient a un client
+					if($fonction_sql->utilisateurEstConnecteEtEstVendeur()==false){
+						echo '<!--PANIER-->
+						<a href="../vue/panier.php"> 
+							<img src="../inc/img/panier.png" class="icone" alt=""> Mon panier
+						</a>';
+	
+					}
+					echo '<a href="../vue/connexion.php?action=deconnexion">
+							<img src="../inc/img/deconnexion.png" class="icone" alt="">Se déconnecter
+						</a>';
+				}
+				
+				//si pas de session en cours
+				else {
+					echo '<!--AIDE-->
+					<a href="../vue/aide.php"> 
+						<img src="../inc/img/aide.png" class="icone" alt=""> Aide
+					</a>
+	
+					<!--COMPTE-->
+					<a href="../vue/connexion.php"> 
+						<img src="../inc/img/compte.png" class="icone" alt=""> Se connecter
+					</a>
+	
+					<!--PANIER-->
+					<a href="../vue/panier.php"> 
+						<img src="../inc/img/panier.png" class="icone" alt=""> Mon panier
+					</a>';
+				}
+				?>
+
+				
 			</div>
 			
 			<!--BARRE DE RECHERCHE-->

@@ -32,11 +32,20 @@ class Fonction_sql {
 	    echo '</div>';
 	}
 
-	function internauteEstConnecte() { 
+	//fonction qui permet de savoir si une session est en cours
+	function utilisateurEstConnecte() { 
 		if(!isset($_SESSION['client'])) 
 			return false;
 		else 
 			return true;
+	}
+
+	//fonction qui permet de savoir si une session est en cours et qu'il s'agit d'un vendeur
+	function utilisateurEstConnecteEtEstVendeur() {
+		if($this->utilisateurEstConnecte() && $_SESSION['client']['statut'] == 1) 
+			return true;
+    	else 
+			return false;
 	}
 }
 ?>

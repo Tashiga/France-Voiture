@@ -8,7 +8,7 @@ require_once("../inc/haut_site.php");
 	<section id="sectionCitroen">
 		<H1>profil</H1>
 		<?php 
-		if(!$fonction_sql->internauteEstConnecte())
+		if(!$fonction_sql->utilisateurEstConnecte())
     		header("location:connexion.php");
 		$fonction_sql->debug($_SESSION);
 		$contenu .= '<p class="">Bonjour <strong>' . $_SESSION['client']['civilite'] . '. ' . $_SESSION['client']['nom'] . ' ' . $_SESSION['client']['prenom'] . '</strong></p>';
