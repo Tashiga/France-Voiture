@@ -894,14 +894,12 @@ main div{
     display: inline-block;
     width: 100%;
    /* border: 3px solid purple;*/
-    margin: 0px;
-    padding-left: 2.5px;
-    padding-top: 2.5px;
+    margin-right: 0px;
 }
 
 #sectionProfil #table_vendeur td{
     display: inline-block;
-    width: 24%;
+    width: 24.07%;
     /*border: 3px solid #db2f2f;*/
 }
 

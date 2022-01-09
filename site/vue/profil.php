@@ -49,31 +49,82 @@ function afficherDiscussionsVendeur() {
 }
 
 function afficherArticlesVendeur() {
-	?>
-	<article class="articles">
-		<div id="">
-			<p>Articles</p>
-			<form method="post" action="">
-				<label for="nom_article">Nom de l'article : </label>
-				<input id="" type="text" name="nom_article"></input>
-				<label for="nom_article">Prix : </label>
-				<input id="" type="text" name="prix_article"></input>
-				<label for="nom_article">Description : </label>
-				<input id="" type="text" name="description_article"></input>
-				<label for="nom_article">Quantite en stock : </label>
-				<input id="" type="text" name="stock_article"></input>
-				<label for="nom_article">Categorie : </label>
-				<input id="" type="text" name="categorie_article"></input>
-				<button>ajouter un article</button>
-			</form>
-		</div>
-	</article>
-	<?php
+		?>
+        <article class="articles">
+            <div id="">
+                <p>Articles</p>
+                <form method="post" action="">
+                    <label for="nom_article">Nom de l'article : </label>
+                    <input id="" type="text" name="nom_article" required="required""></input>
+                    </br>
+                    <label for="nom_article">Prix : </label>
+                    <input id="" type="text" name="prix_article" required="required"></input>
+                    </br>
+                    <label for="nom_article">Description : </label>
+                    <input id="" type="text" name="description_article"></input>
+                    </br>
+                    <label for="nom_article">Quantite en stock : </label>
+                    <input id="" type="text" name="stock_article" required="required"></input>
+                    </br>
+                    <label for="categorie_article">Categorie : </label>
+                    <select name="categorie_article" required="required">
+						<option value="pneus">Pneus</option>
+						<option value="moteur">Moteur</option>
+						<option value="freinage">Freinage</option>
+						<option value="systeme electrique">Systeme electrique</option>
+						<option value="amortisseur">Amortisseur</option>
+						<option value="echappement">Echappement</option>
+						<option value="suspension">Suspension</option>
+						<option value="piece allumage">Piece allumage</option>
+						<option value="climatisation">Climatisation</option>
+						<option value="carrosserie">Carrosserie</option>
+						<option value="alternateur">Alternateur</option>
+						<option value="filtre">Filtre</option>
+						<option value="direction">Direction</option>
+					</select>
+                    </br></br>
+                    <label for="photo">photo de l'article</label>
+    				<input type="file" id="photo" name="photo">
+					<br><br>
+                    <button type="submit">ajouter un article</button>
+                </form>
+            </div>
+        </article>
+        <?php
 
-	if($_POST) {
-		echo "Desole, nous devons coder la partie permmettant d'inserer vos donnees dans la base. Veuillez ressayer plus tard.";
+		if(!empty($_POST)) {
+			require_once("../inc/fonction_sql.php");
+			$fonction_sql = new Fonction_sql();
+		// echo "<p class='erreur'>Désolé, nous devons coder la partie permettant d'insérer vos données dans la base. Veuillez ressayer plus tard.</p>";
+			$fonction_sql->debug($_POST);
 
-	}
+			//pour l'ajour d'une photo
+			$photo_bdd = ""; 
+			if(!empty($_POST['photo'])) {   
+				//$fonction_sql->debug($_FILES);
+				echo "<p class='erreur'>files non empty</p>";
+				// $nom_photo = $_POST['nom_article'] . '_' .$_POST['photo'];
+				// $photo_bdd = "../inc/img/" . "photos_articles/$nom_photo";
+				// $photo_dossier = $_SERVER['DOCUMENT_ROOT'] . "../inc/img/" . "/photos_articles/$nom_photo"; 
+				// $fonction_sql->debug($_SERVER);
+				//copy($_FILES['photo'][$nom_photo],$photo_dossier);
+			}
+			else {
+				echo "<p class='erreur'>files empty</p>";
+			}
+
+
+			foreach($_POST as $indice => $valeur){
+				$_POST[$indice] = htmlEntities(addSlashes($valeur));
+			}
+
+			$contenu='';
+			$fonction_sql->executeRequete("INSERT INTO article (nom, prix, description, nbStock, dateCreation, categorie) values ('$_POST[nom_article]', '$_POST[prix_article]', '$_POST[description_article]', '$_POST[stock_article]', curdate() ,  '$_POST[categorie_article]')");
+			$contenu .= '<div class="validation">Le produit a été ajouté</div>';
+			echo $contenu;
+
+		}
+	
 }
 
 
