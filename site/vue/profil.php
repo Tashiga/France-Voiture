@@ -48,7 +48,7 @@ function afficherDiscussionsVendeur() {
 	<?php
 }
 
-function afficherArticlesVendeur() {
+function afficherArticlesVendeur_ajouter() {
 		?>
         <article class="articles">
             <div id="">
@@ -65,6 +65,17 @@ function afficherArticlesVendeur() {
 		// }
 		
 	
+}
+
+function afficherArticlesVendeur_afficher() {
+	?>
+	<article class="articles">
+		<div id="">
+			<p>voici vos articles</p>
+			
+		</div>
+	</article>
+	<?php
 }
 
 
@@ -198,8 +209,27 @@ require_once("../inc/haut_site.php");
 							if($_GET['action'] == "discussions") {
 								afficherDiscussionsVendeur();
 							}
-							else {
-								afficherArticlesVendeur();
+							else {?>
+							<article class="articles">
+								<div id="">
+									<a href="profil.php?action=articles&type=ajouter">ajouter</a>
+									<a href="profil.php?action=articles&type=afficher">voir mes articles</a>
+								</div>
+							</article>
+								
+								<?php
+								if(!isset($_GET['type'])) {
+									$_GET['type']="";
+								}
+								else{
+									if($_GET['type']=="ajouter") {
+										afficherArticlesVendeur_ajouter();
+									}
+									if($_GET['type']=="afficher") {
+										afficherArticlesVendeur_afficher();
+									}
+								}
+								
 							}
 						}
 					}
