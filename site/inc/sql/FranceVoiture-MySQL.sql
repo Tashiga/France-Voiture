@@ -45,7 +45,7 @@ CREATE TABLE if not exists FranceVoiture.article_commande (
 
 CREATE TABLE if not exists FranceVoiture.article (
     idArticle int PRIMARY KEY not null auto_increment,
-    nom varchar(64) not null,
+    nom varchar(64) not null unique,
     prix float not null,
     description varchar(128),
     nbStock int not null,
