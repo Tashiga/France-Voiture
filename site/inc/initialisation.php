@@ -3,7 +3,7 @@
 //--------- BDD
 
 // chez nous
-$mysqli = new mysqli("localhost", "root", "", "francevoiture");
+$mysqli = new mysqli("localhost", "root", "");
 // sur mon wamp c'est le nom que j'ai donné à ma base mettez celui que vous avez donné vous
 $mysqli->select_db("france-voiture");
 

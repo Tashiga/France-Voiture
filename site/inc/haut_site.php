@@ -1,3 +1,5 @@
+<?php require_once('initialisation.php');?>
+
 
 <!doctype html>
 <html>
