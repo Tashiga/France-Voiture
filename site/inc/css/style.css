@@ -889,6 +889,58 @@ div.validation{
     color:red; 
 }
 
+/*Profil*/
+#sectionProfil{
+    background-color: #dfdfdf;
+    height: 100%;
+}
+
+#sectionProfil #table_vendeur {
+    display: block;
+    width: 100%;
+    /*border: 3px solid #669933;*/
+}
+
+#sectionProfil #table_vendeur tbody{
+    display: inline-block;
+    width: 100%;
+}
+
+#sectionProfil #table_vendeur tbody tr {
+    display: inline-block;
+    width: 100%;
+   /* border: 3px solid purple;*/
+    margin: 0px;
+    padding-left: 2.5px;
+    padding-top: 2.5px;
+}
+
+#sectionProfil #table_vendeur td{
+    display: inline-block;
+    width: 24%;
+    /*border: 3px solid #db2f2f;*/
+}
+
+#sectionProfil #table_vendeur td a{
+    display: inline-block;
+    width: 100%;
+    background-color: #f2f2f2;
+    border:3px solid #070707;
+    padding: 10px;
+    text-decoration: none;
+    color:black;
+    text-align: center;
+}
+#sectionProfil #table_vendeur td a:hover{
+   background-color: #dfdfdf;
+   border:3px solid #b5b5b5;
+}
+
+#sectionProfil .articles{
+    padding:30px;
+}
+
+
 /***************************************FOOTER***************************************/
 footer{
     display: block;
@@ -911,3 +963,7 @@ footer a {
 footer a:hover{
     font-weight: bold;
 }
+
+/***************************************AUTRE***************************************/
+.erreur{ background: #ff0000; padding: 5px; margin: 5px; position: absolute; bottom:30px;}
+.validation{ background: #669933; padding: 5px; margin: 5px; position: absolute; top:30px;}
