@@ -1,36 +1,4 @@
-<?php
-require_once("../inc/initialisation.php");
-
-//detecte lorsque l'internaute clique sur le bouton pour s'inscrire
-if($_POST)
-{
-    $fonction_sql->debug($_POST);
-
-	if (empty($_POST["email"])) {
-		$message = "<div class='erreur'>Entrez une adresse email valide.</div>";
-	}
-    else {
-        $membre = $fonction_sql->executeRequete("SELECT * FROM client WHERE email='$_POST[email]'");
-        if($membre->num_rows > 0) {
-            $message= "<div class='erreur'>Vous avez déjà créé un compte avec cette adresse email.</div>";
-        }
-        else {
-            // $_POST['mdp'] = md5($_POST['mdp']);
-            foreach($_POST as $indice => $valeur)
-            {
-                $_POST[$indice] = htmlEntities(addSlashes($valeur));
-            }
-            $fonction_sql->executeRequete("INSERT INTO client(pseudo, email, mdp) VALUES ('$_POST[pseudo]', '$_POST[email]', '$_POST[mdp]')");
-            $message= "<div class='erreur'>Inscription réussie.</div>";
-        }
-    }
-    echo $message;
-}
-
-
-//--------------------------------- AFFICHAGE HTML ---------------------------------//
- require_once("../inc/haut_site.php"); 
- ?>
+<?php require_once("../inc/haut_site.php"); ?>
 
 <main style="height:120%; background-color:#e4e4e4">
     <section id="sectionInscription">
@@ -52,7 +20,8 @@ if($_POST)
             <input type="password" class="aRemplir" id="mdp" name="mdp" placeholder="votre mot de passe" required="required"/></br>
             </br>
             
-            <label class="contenu" for="mdp">Confirmation mot de passe :</label><br>
+
+            <!-- <label class="contenu" for="mdp">Confirmation mot de passe :</label><br>
             <input type="password" class="aRemplir" id="confmdp" name="mdp" placeholder="ressaisir votre mot de passe" required="required" /></br>
             </br>
 
@@ -66,7 +35,17 @@ if($_POST)
             
             </br>
             <label class="contenu" for="raison_social">Si vous êtes un vendeur, merci de nous indiquer votre raison social :</label><br>
-            <input type="text" class="aRemplir" id="raison_social" name="raison_social" maxlength="20" placeholder="votre raison social" pattern="[a-zA-Z0-9-_.]{1,20}" title="caractères acceptés : a-zA-Z0-9-_." required="required"/></br>
+            <input type="text" class="aRemplir" id="raison_social" name="raison_social" maxlength="20" placeholder="votre raison social" pattern="[a-zA-Z0-9-_.]{1,20}" title="caractères acceptés : a-zA-Z0-9-_." required="required"/></br> -->
+            <label for="mdp">Mot de passe</label><br>
+            <input type="password" id="mdp" name="mdp" required="required"><br><br>
+
+            <label for="mdp">Confirmation mot de passe</label><br>
+            <input type="password" id="confmdp" name="confmdp" required="required"><br><br>
+                
+            <label for="VendeurAcheteur">Vendeur ou Acheteur ?</label><br>
+            <input type="radio" name="VendeurAcheteur" value="vendeur" checked="" >Je souhaite vendre<br>
+            <input type="radio" name="VendeurAcheteur" value="acheteur" >Je souhaite acheter<br><br>
+
                         
             <input type="submit" id="boutonInscription" name="inscription" value="S'inscrire"/>
         </form>

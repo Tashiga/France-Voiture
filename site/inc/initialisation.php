@@ -8,7 +8,11 @@ $mysqli = new mysqli("localhost", "root", "");
 $mysqli->select_db("france-voiture");
 
 //a l'iut 
+//sashtiga
 //$mysqli = new PDO("mysql:host=database-etudiants.iut.univ-paris8.fr;dbname=dutinfopw201659", "dutinfopw201659", "vupuqyja");
+//natacha
+//$mysqli = new PDO("mysql:host=database-etudiants.iut.univ-paris8.fr;dbname=dutinfopw201656", "dutinfopw201656", "gejuzage");
+
 //si erreur a la connexion
 if ($mysqli->connect_error) die('Un problème est survenu lors de la tentative de connexion à la BDD : ' . $mysqli->connect_error);
 
@@ -25,10 +29,11 @@ session_start();
  
 
 //--------- VARIABLES
-$contenu = '';
+$message = '';
  
 
 //--------- AUTRES INCLUSIONS
 include_once("fonction_sql.php");
 $fonction_sql = new Fonction_sql();
+
 ?>
