@@ -50,18 +50,11 @@ function afficherDiscussionsVendeur() {
 }
 
 function afficherArticlesVendeur_ajouter() {
-	require_once("upload.php");
+	
 }
 
 function afficherArticlesVendeur_afficher() {
-	?>
-	<article class="articles">
-		<div id="">
-			<p>voici vos articles</p>
-			
-		</div>
-	</article>
-	<?php
+	
 }
 
 
@@ -171,24 +164,11 @@ function afficherNotesClient() {
 							<article class="articles">
 								<div id="">
 									<a class="a_changer" href="upload.php">ajouter</a>
-									<a class="a_changer" href="profil.php?action=articles&type=afficher">voir mes articles</a>
+									<a class="a_changer" href="produit-afficher.php?action=afficher">voir mes articles</a>
 								</div>
 							</article>
 							
 							<?php
-							//tant que l'utilisateur ne choisit pas son 'type' on affiche rien
-							if(!isset($_GET['type'])) {
-								$_GET['type']="";
-							}
-							else{
-								if($_GET['type']=="ajouter") {
-									afficherArticlesVendeur_ajouter();
-								}
-								if($_GET['type']=="afficher") {
-									afficherArticlesVendeur_afficher();
-								}
-							}
-							
 						}
 					}
 				}

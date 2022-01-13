@@ -5,7 +5,7 @@ require_once("../inc/haut_site.php");
 //--------------------------------- AFFICHAGE HTML ---------------------------------//
 
 ?>
-<main>
+<main style="">
 	<section id="sectionProfil">
 		<?php 
 		//si utilisateur n'est pas connecte

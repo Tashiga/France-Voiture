@@ -49,7 +49,6 @@ require_once("menu_profil.php");
             </div>
         </article>
     <?php
-    require_once("../inc/bas_site.php");
 
     //si vendeur veut ajouter article
     if($_POST) {
@@ -105,11 +104,6 @@ require_once("menu_profil.php");
             echo $erreur;
         }
     }
-
-
-
-
-
 
 
 ?>
