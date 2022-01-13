@@ -1,8 +1,9 @@
 <?php 
 require_once("../inc/initialisation.php");
+require_once("menu_profil.php");
 
 
-//--------------------------------------traitement php--------------------------------------------//
+//--------------------------------- AFFICHAGE HTML AVEC TRAITEMENT PHP---------------------------------//
 
 function afficherInformationsVendeur() {
 	?>
@@ -49,22 +50,7 @@ function afficherDiscussionsVendeur() {
 }
 
 function afficherArticlesVendeur_ajouter() {
-		?>
-        <article class="articles">
-            <div id="">
-                <p>Articles</p>
-				<?php
-                    require_once("upload.php");?>
-            </div>
-        </article>
-        <?php
-		// if($_POST) {
-		// 	$contenu='';
-		// 	$contenu .= '<div class="validation">Le produit a été ajouté et la photo a ete inserer</div>';
-		// 	echo $contenu;
-		// }
-		
-	
+	require_once("upload.php");
 }
 
 function afficherArticlesVendeur_afficher() {
@@ -135,117 +121,82 @@ function afficherNotesClient() {
 	<?php
 }
 
-//--------------------------------- AFFICHAGE HTML ---------------------------------//
-
-require_once("../inc/haut_site.php");
-
 ?>
-<main>
-	<section id="sectionProfil">
-		<?php 
-		if(!$fonction_sql->utilisateurEstConnecte()) {
-    		header("location:connexion.php");
+<div class="article_profil">
+	<?php
+	//si utilisateur n'est pas connecte
+	if(!$fonction_sql->utilisateurEstConnecte()) {
+		header("location:connexion.php");
+	}
+	else {
+		if (!ISSET($_GET['action'])) {
+			$_GET['action']='informations';
 		}
-		else {
-			if (!ISSET($_GET['action'])) {
-				$_GET['action']='informations';
-			}
-
-			if ($_SESSION['client']['statut']==0) {
-				?>
-				<table id="table_vendeur">
-					<tbody>
-						<tr id="table">
-							<td><a href= "profil.php?action=informations">Mes informations</button></td>
-							<td><a href= "profil.php?action=commandes">Mes commandes</button></td>
-							<td><a href= "profil.php?action=discussions">Mes discussions</button></td>
-							<td><a href= "profil.php?action=notes">Mes notes attribuées</button></td>
-						</tr>
-					</tbody>
-				</table>
-				<?php
-				if(isset($_GET['action'])){
-					if($_GET['action'] == "informations") {
-						afficherInformationsClient();
+		//si client
+		if ($_SESSION['client']['statut']==0) {
+			if(isset($_GET['action'])){
+				if($_GET['action'] == "informations") {
+					afficherInformationsClient();
+				}
+				else {
+					if($_GET['action'] == "commandes") {
+						afficherCommandesClient();
 					}
 					else {
-						if($_GET['action'] == "commandes") {
-							afficherCommandesClient();
+						if($_GET['action'] == "discussions") {
+							afficherDiscussionsClient();
 						}
 						else {
-							if($_GET['action'] == "discussions") {
-								afficherDiscussionsClient();
-							}
-							else {
-								afficherNotesClient();
-							}
+							afficherNotesClient();
 						}
 					}
 				}
-			
 			}
-			else {
-				?>
-				<table id="table_vendeur">
-					<tbody>
-						<tr id="table">
-							<td><a href= "profil.php?action=informations">Mes informations</button></td>
-							<td><a href= "profil.php?action=commandes">Mes commandes</button></td>
-							<td><a href= "profil.php?action=discussions">Mes discussions</button></td>
-							<td><a href= "profil.php?action=articles">Mes articles</button></td>
-						</tr>
-					</tbody>
-				</table>
-				<?php
-				if(isset($_GET['action'])){
-					if($_GET['action'] == "informations") {
-						afficherInformationsVendeur();
+		}
+		//si vendeur
+		else {
+			if(isset($_GET['action'])){
+				if($_GET['action'] == "informations") {
+					afficherInformationsVendeur();
+				}
+				else {
+					if($_GET['action'] == "commandes") {
+						afficherCommandesVendeur();
 					}
 					else {
-						if($_GET['action'] == "commandes") {
-							afficherCommandesVendeur();
+						if($_GET['action'] == "discussions") {
+							afficherDiscussionsVendeur();
 						}
-						else {
-							if($_GET['action'] == "discussions") {
-								afficherDiscussionsVendeur();
-							}
-							else {?>
+						else {?>
 							<article class="articles">
 								<div id="">
-									<a href="profil.php?action=articles&type=ajouter">ajouter</a>
-									<a href="profil.php?action=articles&type=afficher">voir mes articles</a>
+									<a class="a_changer" href="upload.php">ajouter</a>
+									<a class="a_changer" href="profil.php?action=articles&type=afficher">voir mes articles</a>
 								</div>
 							</article>
-								
-								<?php
-								if(!isset($_GET['type'])) {
-									$_GET['type']="";
-								}
-								else{
-									if($_GET['type']=="ajouter") {
-										afficherArticlesVendeur_ajouter();
-									}
-									if($_GET['type']=="afficher") {
-										afficherArticlesVendeur_afficher();
-									}
-								}
-								
+							
+							<?php
+							//tant que l'utilisateur ne choisit pas son 'type' on affiche rien
+							if(!isset($_GET['type'])) {
+								$_GET['type']="";
 							}
+							else{
+								if($_GET['type']=="ajouter") {
+									afficherArticlesVendeur_ajouter();
+								}
+								if($_GET['type']=="afficher") {
+									afficherArticlesVendeur_afficher();
+								}
+							}
+							
 						}
 					}
 				}
-			
+			}
 		}
-		?>
-	</section>
-</main>
-		
-<?php 
+	}
+	?>
+</div>
+
+<?php
 require_once("../inc/bas_site.php");
-
-
-	
-
-	
-
-}
