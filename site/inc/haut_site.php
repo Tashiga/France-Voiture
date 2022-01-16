@@ -42,7 +42,7 @@
 						</a>';
 	
 					}
-					echo '<a href="../vue/connexion.php?action=deconnexion">
+					echo '<a href="../controleur/Ctrl_connexion.php?action=deconnexion">
 							<img src="../inc/img/deconnexion.png" class="icone" alt="">Se déconnecter
 						</a>';
 				}

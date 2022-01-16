@@ -34,7 +34,7 @@ class Inscription{
 
     public function s_inscrire(){
         $table = $_POST['VendeurAcheteur'];
-        $mdpHash = md5($_POST['mdp']);
+        $mdpHash = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
         $this->fonction_sql->executeRequete("INSERT INTO $table(nom, email, mdp) VALUES ('$_POST[nom]', '$_POST[email]', '$mdpHash')");
         echo "<div class='validation'>Inscription réussie pour $table.</div>";
     }

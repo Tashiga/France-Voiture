@@ -3,7 +3,7 @@ require_once("../modele/Inscription.php");
 require_once("../vue/inscription.php");
 
 if($fonction_sql->utilisateurEstConnecte()){
-    header("location:profil.php");
+    header("location:Ctrl_profil.php");
 }
 else {
     $action = new Inscription();
