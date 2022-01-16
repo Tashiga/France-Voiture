@@ -79,6 +79,10 @@ require_once("menu_profil.php");
             }
             //Sinon (fichier deplace correctement).
             else {
+                //permet d'inserer les apostrophes etc... correctement
+                foreach($_POST as $indice => $valeur) {
+                    $_POST[$indice] = htmlEntities(addSlashes($valeur));
+                }
                 //verifier si nom_article n'existe pas dans la base.
                 $resultat = $fonction_sql->executeRequete("SELECT * FROM article WHERE nom='$_POST[nom_article]'");
                 if($resultat->num_rows == 0) {
