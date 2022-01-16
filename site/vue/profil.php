@@ -36,28 +36,6 @@ function afficherCommandesVendeur() {
 	<?php
 }
 
-function afficherDiscussionsVendeur() {
-	?>
-	<article class="articles">
-		<div id="">
-			<p>Discussions</p>
-			<?php 
-				
-			?>
-		</div>
-	</article>
-	<?php
-}
-
-function afficherArticlesVendeur_ajouter() {
-	
-}
-
-function afficherArticlesVendeur_afficher() {
-	
-}
-
-
 function afficherInformationsClient() {
 	?>
 	<article class="articles">
@@ -158,7 +136,8 @@ function afficherNotesClient() {
 					}
 					else {
 						if($_GET['action'] == "discussions") {
-							afficherDiscussionsVendeur();
+							echo '<a class="lien_vers_messagerie" href="message.php?">entrez dans votre messagerie</a>';
+
 						}
 						else {?>
 							<article class="articles">

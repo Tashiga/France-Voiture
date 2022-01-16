@@ -624,6 +624,15 @@ main{
     background: #db2f2f;
 }
 
+.lien_vers_messagerie{
+    text-decoration:none; 
+    color:black;
+}
+
+.lien_vers_messagerie:hover{
+    font-weight: bold;
+}
+
 /***************************************upload***************************************/
 
 .a_center {
@@ -646,6 +655,7 @@ main{
     position:absolute;
     width: 50%;
 }
+
 /***************************************produit-afficher***************************************/
 #afficher_article {
     display: inline-block;
@@ -654,6 +664,132 @@ main{
     left: 80px;
     right: 80px;
     bottom:40px;
+}
+
+/***************************************message***************************************/
+
+#afficher_message {
+    display: inline-block;
+    position:absolute;
+    top:230px;
+    left: 80px;
+    right: 80px;
+    bottom:40px;
+}
+
+#afficher_message #menu_personnes{
+    display: inline-block;
+    float: left;
+    width: 20%;
+    /* border: 3px solid pink; */
+    background: #1E2754;
+}
+
+#afficher_message #envoyer_message {
+    display: inline-block;
+    /* float: right; */
+    width: 78%; 
+    /* border: 3px solid purple; */
+    background: white;
+}
+
+#afficher_message .bouton_perosnne {
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    background: #1E2754;
+    padding: 0px;
+    display: block;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+
+#afficher_message .bouton_perosnne:hover {
+    background: #2d3b84;
+    font-weight: bold;
+    border: 0.5px solid white;
+}
+
+.recu {
+    display: inline-block;
+    background: #cccccc;
+    padding: 5px;
+    text-align: left;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.envoye {
+    display: inline-block;
+    background: #cccccc;
+    padding: 5px;
+    text-align: right;
+    margin: 0;
+    float: right;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.ind_recu{
+    display:block;
+    text-align: left;
+    /* border: 3px solid orange; */
+    margin: 0px;
+    font-style: italic;
+}
+
+.ind_envoye {
+ display: block;
+ text-align: right;
+ /* border: 3px solid yellow; */
+ padding: 5px;
+ margin: 0px;
+ margin-top: 25px;
+ font-style: italic;
+ /* position: absolute; */
+}
+
+.div_recu{
+    border: 3px solid transparent;
+    display: block;
+    /* position: absolute; */
+}
+
+.div_envoye {
+    border: 3px solid transparent;
+    display: block;
+    margin: 3px;
+    /* position: absolute; */
+}
+
+.titre_personnes{
+    text-align: center;
+    color: white;
+
+}
+
+#form_message {
+    padding: 10px;
+    display: block;
+}
+
+#bouton_message{
+    display: inline-block;
+    padding: 15px;
+    background: #dd4748;
+    color: white;
+    border: none;
+    margin-left: 15px;
+}
+
+#bouton_message:hover{
+    font-weight: bold;
+    background: #db2f2f;
+}
+
+#textarea_message{
+    margin-bottom: -20px;
 }
 
 /***************************************FOOTER***************************************/

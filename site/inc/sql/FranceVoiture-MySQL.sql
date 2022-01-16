@@ -129,14 +129,14 @@ CREATE TABLE if not exists FranceVoiture.peut_noter (
 );
 
 CREATE TABLE if not exists FranceVoiture.envoyer_un_message (
-    idClient int not null,
-    idVendeur int not null,
+    idMessage int not null auto_increment,
+    idExpediteur int not null,
+    idDestinateur int not null,
+    statut  enum('0', '1') not null,  --0 si client et 1 si vendeur
     message text not null,
     dateEnvoye date not null,
     tpsEnvoye time not null,
-    CONSTRAINT pk_envoyer_un_message PRIMARY KEY (idClient, idVendeur),
-    CONSTRAINT fk_envoyer_un_message_idClient FOREIGN KEY (idClient) REFERENCES FranceVoiture.client(idClient),
-    CONSTRAINT fk_envoyer_un_message_idVendeur FOREIGN KEY (idVendeur) REFERENCES FranceVoiture.vendeur(idVendeur)
+    CONSTRAINT pk_envoyer_un_message PRIMARY KEY (idMessage, idExpediteur, idDestinateur)
 );
 
 CREATE TABLE if not exists FranceVoiture.contient(
