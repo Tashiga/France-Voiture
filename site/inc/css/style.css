@@ -651,10 +651,73 @@ main{
 
 #ajouter {
     top:210px;
-    left:310px;
+    left:60px;
+    position:absolute;
+    width: 90%;
+    bottom: 35px;
+}
+
+#ajouter_article {
+    padding: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    float: left;
+    width: 43%;
+    bottom: 30px;
+}
+
+#modification_article{
+    display: block;
+    margin-bottom:50px;
+}
+
+#votre_article{
+    display: inline-block;
+    position: absolute;
+    width: 20%;
+    margin-left: 250px;
+
+}
+#infos_modif{
+    display: inline-block;
+    position: absolute;
+    width: 40%;
+    left: 450px;
+}
+
+#ajouter_article2 {
+    float: right;
+    padding: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 43%;
+    margin-bottom: 10px;
+}
+
+#ajouter_voiture {
+    top:220px;
+    left:330px;
     position:absolute;
     width: 50%;
+    bottom: 35px;
 }
+
+#menu_marque{
+    width: 20%;
+    text-align: center;
+    float: left;
+    height: 100%;
+}
+
+#ajouter_modele{
+    width: 76%;
+    float: right;
+    padding: 5px;
+    padding-top : 50px;
+    padding-bottom: 50px;
+    height: 75%;
+}
+
 
 /***************************************produit-afficher***************************************/
 #afficher_article {
@@ -681,15 +744,12 @@ main{
     display: inline-block;
     float: left;
     width: 20%;
-    /* border: 3px solid pink; */
     background: #1E2754;
 }
 
 #afficher_message #envoyer_message {
     display: inline-block;
-    /* float: right; */
     width: 78%; 
-    /* border: 3px solid purple; */
     background: white;
 }
 
@@ -734,7 +794,6 @@ main{
 .ind_recu{
     display:block;
     text-align: left;
-    /* border: 3px solid orange; */
     margin: 0px;
     font-style: italic;
 }
@@ -742,25 +801,21 @@ main{
 .ind_envoye {
  display: block;
  text-align: right;
- /* border: 3px solid yellow; */
  padding: 5px;
  margin: 0px;
  margin-top: 25px;
  font-style: italic;
- /* position: absolute; */
 }
 
 .div_recu{
     border: 3px solid transparent;
     display: block;
-    /* position: absolute; */
 }
 
 .div_envoye {
     border: 3px solid transparent;
     display: block;
     margin: 3px;
-    /* position: absolute; */
 }
 
 .titre_personnes{

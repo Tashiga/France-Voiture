@@ -143,7 +143,7 @@ function afficherNotesClient() {
 						else {?>
 							<article class="articles">
 								<div id="">
-									<a class="a_changer" href="upload.php">ajouter</a>
+									<a class="a_changer" href="upload.php?action=new_article">ajouter</a>
 									<a class="a_changer" href="produit-afficher.php?action=afficher">voir mes articles</a>
 								</div>
 							</article>
