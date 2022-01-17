@@ -132,7 +132,8 @@ CREATE TABLE if not exists FranceVoiture.envoyer_un_message (
     idMessage int not null auto_increment,
     idExpediteur int not null,
     idDestinateur int not null,
-    statut  enum('0', '1') not null,  --0 si client et 1 si vendeur
+    statutExp  enum('0', '1') not null,  --0 si client et 1 si vendeur
+    statutDest  enum('0', '1') not null,  --0 si client et 1 si vendeur
     message text not null,
     dateEnvoye date not null,
     tpsEnvoye time not null,

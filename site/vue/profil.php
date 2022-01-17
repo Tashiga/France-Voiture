@@ -115,7 +115,8 @@ function afficherNotesClient() {
 					}
 					else {
 						if($_GET['action'] == "discussions") {
-							afficherDiscussionsClient();
+							echo '<a class="lien_vers_messagerie" href="message.php?">entrez dans votre messagerie</a>';
+
 						}
 						else {
 							afficherNotesClient();
