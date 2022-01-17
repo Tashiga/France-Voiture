@@ -1,7 +1,7 @@
 <?php 
 //--------------------------------- AFFICHAGE HTML ---------------------------------//
-require_once("../inc/initialisation.php");
-require_once("../inc/haut_site.php"); 
+#require_once("../inc/initialisation.php");
+require_once("./inc/haut_site.php"); 
 ?>
 <main style="height:auto; background-color:#1E2754">
 			<section id="sectionAccueil">
@@ -9,18 +9,18 @@ require_once("../inc/haut_site.php");
                     <section id="voiture" >
                         <div id="citroen">
                             <a href="citroen.php"> 
-                                <img id="img-citroen-accueil" src="../inc/img/logoCitroen.png" class="img_accueil" alt="">
+                                <img id="img-citroen-accueil" src="inc/img/logoCitroen.png" class="img_accueil" alt="">
                             </a>
                         </div>
                         <div id="droite">
                             <div id="renault-accueil">
                                 <a href="renault.php"> 
-                                    <img id="img-renault-accueil" src="../inc/img/logoRenault.jpg" class="img_accueil" alt="">
+                                    <img id="img-renault-accueil" src="inc/img/logoRenault.jpg" class="img_accueil" alt="">
                                 </a>
                             </div>
                             <div id="peugeot-accueil">
                                 <a href="peugeot.php"> 
-                                    <img id="img-peugeot-accueil" src="../inc/img/logoPeugeot.png" class="img_accueil" alt="">
+                                    <img id="img-peugeot-accueil" src="inc/img/logoPeugeot.png" class="img_accueil" alt="">
                                 </a>
                             </div>
                         </div>
@@ -64,4 +64,4 @@ require_once("../inc/haut_site.php");
             </section>
 		</main>
 
-<?php require_once("../inc/bas_site.php"); ?>
+<?php require_once("./inc/bas_site.php"); ?>

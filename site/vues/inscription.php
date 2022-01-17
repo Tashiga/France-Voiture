@@ -1,4 +1,4 @@
-<?php require_once("../inc/haut_site.php"); ?>
+<?php require_once(ROOT."inc/haut_site.php"); ?>
 
 <main style="height:120%; background-color:#e4e4e4">
     <section id="sectionInscription">
@@ -24,9 +24,9 @@
             <input type="radio" name="VendeurAcheteur" value="vendeur" checked="" >Je souhaite vendre<br>
             <input type="radio" name="VendeurAcheteur" value="acheteur" >Je souhaite acheter<br><br>
                         
-            <input type="submit" id="boutonInscription" name="inscription" value="S'inscrire"/>
+            <input type="submit" id="boutonInscription" name="type" value="inscription"/>
         </form>
     </section>
 </main>
 
-<?php require_once("../inc/bas_site.php"); ?>
+<?php require_once(ROOT."/inc/bas_site.php"); ?>

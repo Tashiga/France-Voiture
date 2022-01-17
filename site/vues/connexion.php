@@ -1,4 +1,4 @@
-<?php require_once("../inc/haut_site.php"); ?>
+<?php require_once("./inc/haut_site.php"); ?>
 
 <main style=" background-color: #e4e4e4;">
 			<section id="sectionConnexion">
@@ -14,12 +14,12 @@
 							<input type="checkbox" name="vendeur" value="Yes"/>
 							<p>Je suis un vendeur</p>
 						</div>
-						<button name="Connexion" type="submit" class="capitalConnex" id="boutonConnex">connexion</button>
+						<button name="type" value="connexion" type="submit" class="capitalConnex" id="boutonConnex">connexion</button>
 					</div> 
 				</form >
 				<div id="inscription">
 					<p class="capitalConnex">pas de compte ?</p>
-					<a href="Ctrl_inscription.php" class="capitalConnex">s'inscrire gratuitement</a>
+					<a href="utilisateurs/inscription" class="capitalConnex">s'inscrire gratuitement</a>
 				</div>
 				
 			</section>
@@ -27,4 +27,4 @@
 
 		</main>
 
-<?php require_once("../inc/bas_site.php"); ?>
+<?php require_once("./inc/bas_site.php"); ?>

@@ -1,6 +1,6 @@
 <?php 
-require_once("../inc/initialisation.php");
-require_once("menu_profil.php");
+require_once(ROOT."inc/initialisation.php");
+#require_once("menu_profil.php");
 
 
 //--------------------------------- AFFICHAGE HTML AVEC TRAITEMENT PHP---------------------------------//
