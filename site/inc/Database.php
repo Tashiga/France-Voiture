@@ -24,7 +24,4 @@ abstract class Database{
         }
     }
 
-    function executeRequete(){
-        
-    }
 }

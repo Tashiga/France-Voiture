@@ -16,7 +16,7 @@ $fonction_sql = new Fonction_sql();
 		<header>
 			<!--LOGO-->
             <div id="logo">
-				<a href="./accueil"> 
+				<a href="./"> 
 					<img src="inc/img/logo.png" alt="logo" width="300">
 				</a>
 			</div>
@@ -32,7 +32,7 @@ $fonction_sql = new Fonction_sql();
 					</a>
 
 					<!--COMPTE-->
-					<a href="utilisateurs/profil"> 
+					<a href="profil/informations"> 
 						<img src="inc/img/compte.png" class="icone" alt=""> Mon profil
 					</a>';
 					

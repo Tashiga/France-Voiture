@@ -36,7 +36,7 @@ class Utilisateurs extends Controleur {
                     $this->nouvelle_session($data);
 
                     //diriger vers la page profil
-                    header("location:profil");
+                    header("location:../profil/informations");
                 }
                 else {
                     $message = "<div class='erreur'>Erreur : Le mot de passe n'est pas ". $_POST['password'] ."</div>";
@@ -108,12 +108,8 @@ class Utilisateurs extends Controleur {
 
     function deconnexion(){
         session_destroy();
-        echo "vous êtes déconnecté";
-    }
-
-
-    function profil(){
-        $this->render('profil');
+        $redirect = '<a href="../">Cliquer ici pour retourner à l\'accueil</a>'; 
+        echo "vous êtes déconnecté $redirect";
     }
 
 }

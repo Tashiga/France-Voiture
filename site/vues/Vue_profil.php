@@ -1,6 +1,5 @@
 <?php 
 require_once("menu_profil.php");
-require_once(ROOT."inc/haut_site.php");
 
 class Vue_profil{
 
@@ -51,8 +50,8 @@ class Vue_profil{
 		?>
 		<article class="articles">
 			<div class="article_profil">
-				<a class="a_changer" href="upload.php?action=new_article">ajouter</a>
-				<a class="a_changer" href="produit-afficher.php?action=afficher">voir mes articles</a>
+				<a class="a_changer" href="produits/new_article">ajouter</a>
+				<a class="a_changer" href="produits/affichage">voir mes articles</a>
 			</div>
 		</article>
 		<?php

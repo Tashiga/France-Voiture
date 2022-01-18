@@ -1,66 +1,60 @@
 <?php 
 //--------------------------------- AFFICHAGE HTML ---------------------------------//
-require_once("../inc/initialisation.php");
-require_once("menu_profil.php");
-
-if(!isset($_GET['action'])) {
-    $_GET['action'] = "afficher";
-}
-
-if(isset($_GET['action']) && $_GET['action'] == "afficher") {  
+require_once("menu_profil.php"); 
+require_once(ROOT."inc/haut_site.php");
 ?>
+
+
 	<article id="afficher_article">
 		<div id="">
 			<?php
-            $id = $_SESSION['client']['idVendeur'];
-            $mesArticles= $fonction_sql->executeRequete("SELECT idArticle FROM ajouter WHERE idvendeur = '$id'");
-			$resultat = $fonction_sql->executeRequete("SELECT * FROM article natural join ajouter where idvendeur = '$id'");
-            
-            $contenu .= '<h2 class="a_center"> Affichage des Produits </h2>';
-            $contenu .= 'Nombre de produit(s) dans la boutique : ' . $mesArticles->num_rows;
+
+            $contenu = '<h2 class="a_center"> Affichage des Produits </h2>';
+            $contenu .= 'Nombre de produit(s) dans la boutique : ' . $articles->num_rows;
             $contenu .= '<table border="1"><tr>';
 
             $contenu .= '<th>Photo</th>';
-            while($colonne = $resultat->fetch_field())
+            while($colonne = $articles->fetch_field())
             {    
-                
                 if($colonne->name != 'idvendeur') {
-                    $contenu .= '<th>' . $colonne->name . '</th>';
+                    $contenu .= '<th>' . $colonne->name .'</th>';
                 }
             }
             $contenu .= '<th>Modification</th>';
-            $contenu .= '<th>Supression</th>';
+            $contenu .= '<th>Suppression</th>';
             $contenu .= '</tr>';
-         
-            while ($ligne = $resultat->fetch_assoc())
-            {
+
+            foreach ($articles as $article):
                 $contenu .= '<tr>';
-                $id_article = $ligne['idArticle'];
-                $chemin = $fonction_sql->executeRequete("SELECT * FROM photo NATURAL JOIN affiche WHERE idArticle = '$id_article'");
-                // $fonction_sql->debug($chemin);
-                while($autre = $chemin->fetch_assoc()) {
-                    $contenu .= '<td><img  class="icone" src="'.$autre['cheminPhoto'].'"></td>';
-                    foreach ($ligne as $indice => $information)
+                $contenu .= '<td></td>';
+                    
+                /*
+                while ($row = $chemin->fetch_assoc()) {
+                    echo $row['cheminPhoto'];
+                    $contenu .= '<td><img  class="icone" src="'.$row['cheminPhoto'].'"></td>';
+                    
+                }
+                */
+                foreach ($article as $indice => $information)
+                {
+                    if($indice != "idvendeur")
                     {
-                        if($indice != "idvendeur")
-                        {
-                            $contenu .= '<td>' . $information . '</td>';
-                        }
+                        $contenu .= '<td>' . $information . '</td>';
                     }
-                    $contenu .= '<td><a href="?action=modification&id_article=' . $ligne['idArticle'] .'"><img class="icone" src="../inc/img/modifier.png"></a></td>';
-                    $contenu .= '<td><a href="?action=suppression&id_article=' . $ligne['idArticle'] .'" OnClick="return(confirm(\'En êtes vous certain de vouloir supprimer cet article ?\'));"><img class="icone" src="../inc/img/poubelle.png"></a></td>';
-                    $contenu .= '</tr>';
                 }
                 
-            }
-            $contenu .= '</table><br><hr><br>';
+                $contenu .= '<td><a class="a_changer" href="?action=modification&id_article=' . $article['idArticle'] .'">Modifier</a></td>';
+                $contenu .= '<td><a class="a_changer" href="?action=suppression&id_article=' . $article['idArticle'] .'" OnClick="return(confirm(\'En êtes vous certain de vouloir supprimer cet article ?\'));">Supprimer</a></td>';
+                $contenu .= '</tr>';
+            endforeach;
             echo $contenu;
+
 			?>
-			 <a class="a_changer" style="margin-left:470px" href="profil.php?action=articles">Retour à vos articles</a>
+            
 		</div>
 	</article>
+    <div class="article_profil"> <a class="a_changer" href="profil/articles">Retour à vos articles</a> </div>
 	<?php
-}
 
 
 

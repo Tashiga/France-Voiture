@@ -1,5 +1,6 @@
 <?php 
 require_once(ROOT."inc/initialisation.php");
+require_once(ROOT."inc/haut_site.php");
 
 
 $fonction_sql = new Fonction_sql();
