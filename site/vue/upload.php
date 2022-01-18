@@ -10,7 +10,7 @@ if(!isset($_GET['action'])) {
 if($_GET['action']=="new_article") {
     ?>
         <article class="articles" id="ajouter" style="">
-            <form method="POST" action="upload.php" enctype="multipart/form-data">
+            <form method="POST" action="upload.php?action=new_article" enctype="multipart/form-data">
                      <div id="ajouter_article">
                     <h3 class="a_center">Votre article</h3>
                     <p class="a_center" style="font-size:small;">Veuillez remplir les informations ci-dessous, afin d'ajouter votre article.</p>
@@ -56,7 +56,8 @@ if($_GET['action']=="new_article") {
                     </br>
                     <label for ="modele_voiture" >Marque de la voiture : </label>
                     </br>
-
+                    
+                    <!-- script JavaScript -->
                     <script>
 
                     function cacher2() {
@@ -263,7 +264,7 @@ if($_GET['action'] == "new_voiture") {
             ?>
         </div>
         <div id="ajouter_modele">
-            <form action="">
+            <form action="upload.php?action=new_voiture" method="POST"> 
                 <H3 class="a_center">Nouveau modele de voiture : </H3>
                 <i>Attention un modele creer ne peut etre supprimer et peut être percu par tout le monde.<i>
                 </br>
@@ -288,7 +289,16 @@ if($_GET['action'] == "new_voiture") {
     <?php
 
     if($_POST) {
-        $fonction_sql-debug($_POST);
+        if($fonction_sql->executeRequete("SELECT * from voiture where marque = '$_POST[marque_voiture]' and modele = '$_POST[modele_voiture]' ") ) {
+
+        }
+        if($fonction_sql->executeRequete("INSERT into voiture (marque, modele) values('$_POST[marque_voiture]', '$_POST[modele_voiture]')")) {
+            echo '<p class="validation">Votre nouveau modele a ete enregistrer avec succès !</p>';
+        }
+        else {
+            echo '<p class="erreur">votre modele ne peut enregistrer (il existe deja ou autres problemes).</p>';
+        }
+        
     }
 }
 ?>

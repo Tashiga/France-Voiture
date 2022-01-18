@@ -101,7 +101,7 @@ if(isset($_GET['action']) && $_GET['action'] == "modification") {
                         <div id="votre_article">
                             <?php
                             if(isset($article_actuel)){
-                                echo '<img class="icone" src="' . $result_photo['cheminPhoto'] . '"  ="90" height="90"><br>';
+                                echo '<img style="margin-left:60px" class="icone" src="' . $result_photo['cheminPhoto'] . '"  ="90" height="90"><br>';
                             }?>
                             Nom de l'article : <?php
                             if(isset($article_actuel['nom'])) 
@@ -123,49 +123,164 @@ if(isset($_GET['action']) && $_GET['action'] == "modification") {
                         </div>
                         <div id="infos_modif">
                             <form method="POST" action="" enctype="multipart/form-data">
-                                <label for="nom_article">Nom de l'article : </label>
-                                <input id="" type="text" size="30" name="nom_article" 
-                                placeholder="<?php  if(isset($article_actuel['nom'])) echo $article_actuel['nom']; echo ''?>"></input>
-                                </br>
-                                <label for="prix_article">Prix : </label>
-                                <input id="" type="number" step="0.01" style="width:150px;" name="prix_article" min="1" max="10000" 
-                                placeholder="<?php  if(isset($article_actuel['prix'])) echo $article_actuel['prix']; echo ''?>"></input> €
-                                </br>
-                                <label for="description_article">Description : </label></br>
-                                <textarea id="" type="text" rows="5" cols="33" name="description_article" 
-                                placeholder="<?php  if(isset($article_actuel['description'])) echo $article_actuel['description']; echo ''?>" style="margin-left:120px;"></textarea>
-                                </br>
-                                <label for="stock_article">Quantite en stock : </label>
-                                <input id="" type="number" name="stock_article" style="width:150px;" min="1" max="100" 
-                                placeholder="<?php  if(isset($article_actuel['nbStock'])) echo $article_actuel['nbStock']; echo ''?>"></input>
-                                </br>
-                                <input type="hidden" name="MAX_FILE_SIZE" value="1000000000000000">
-                                <label for="image_article">Fichier : </label>
-                                <input type="file" name="image_article">
-                                </br>
-                                <label for="categorie_article">Categorie : </label>
-                                <select name="categorie_article" required="required">
-                                    <option value="pneus" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'pneus') echo 'selected'; ?> >Pneus</option>
-                                    <option value="moteur" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'moteur') echo 'selected'; ?> >Moteur</option>
-                                    <option value="freinage" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'freinage') echo 'selected'; ?> >Freinage</option>
-                                    <option value="systeme electrique" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'systeme electrique') echo 'selected';?> >Systeme electrique</option>
-                                    <option value="amortisseur" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'amortisseur') echo 'selected';?> >Amortisseur</option>
-                                    <option value="echappement" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'echappement') echo 'selected';?> >Echappement</option>
-                                    <option value="suspension" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'suspension') echo 'selected';?> >Suspension</option>
-                                    <option value="piece allumage" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'piece allumage') echo 'selected';?> >Piece allumage</option>
-                                    <option value="climatisation" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'climatisation') echo 'selected';?> >Climatisation</option>
-                                    <option value="carrosserie" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'carrosserie') {echo 'selected';} ?> >Carrosserie</option>
-                                    <option value="alternateur" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'alternateur') echo 'selected';?> >Alternateur</option>
-                                    <option value="filtre" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'filtre') echo 'selected';?> >Filtre</option>
-                                    <option value="direction" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'direction') echo 'selected';?> >Direction</option>
-                                </select>
-                                <input class="a_changer" style="margin-left:130px;" type="submit" value="modifier">
+                                <div id="infos_modif_gauche">
+                            
+                                    <label for="nom_article">Nom de l'article : </label>
+                                    <input id="" type="text" size="30" name="nom_article" 
+                                    placeholder="<?php  if(isset($article_actuel['nom'])) echo $article_actuel['nom']; echo ''?>"></input>
+                                    </br>
+                                    <label for="prix_article">Prix : </label>
+                                    <input id="" type="number" step="0.01" style="width:150px;" name="prix_article" min="1" max="10000" 
+                                    placeholder="<?php  if(isset($article_actuel['prix'])) echo $article_actuel['prix']; echo ''?>"></input> €
+                                    </br>
+                                    <label for="description_article">Description : </label></br>
+                                    <textarea id="" type="text" rows="5" cols="33" name="description_article" 
+                                    placeholder="<?php  if(isset($article_actuel['description'])) echo $article_actuel['description']; echo ''?>" style="margin-left:120px;"></textarea>
+                                    </br>
+                                    <label for="stock_article">Quantite en stock : </label>
+                                    <input id="" type="number" name="stock_article" style="width:150px;" min="1" max="100" 
+                                    placeholder="<?php  if(isset($article_actuel['nbStock'])) echo $article_actuel['nbStock']; echo ''?>"></input>
+                                    </br>
+                                    <input type="hidden" name="MAX_FILE_SIZE" value="1000000000000000">
+                                    <label for="image_article">Fichier : </label>
+                                    <input type="file" name="image_article">
+                                    </br>
+                                    <label for="categorie_article">Categorie : </label>
+                                    <select name="categorie_article" required="required">
+                                        <option value="pneus" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'pneus') echo 'selected'; ?> >Pneus</option>
+                                        <option value="moteur" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'moteur') echo 'selected'; ?> >Moteur</option>
+                                        <option value="freinage" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'freinage') echo 'selected'; ?> >Freinage</option>
+                                        <option value="systeme electrique" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'systeme electrique') echo 'selected';?> >Systeme electrique</option>
+                                        <option value="amortisseur" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'amortisseur') echo 'selected';?> >Amortisseur</option>
+                                        <option value="echappement" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'echappement') echo 'selected';?> >Echappement</option>
+                                        <option value="suspension" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'suspension') echo 'selected';?> >Suspension</option>
+                                        <option value="piece allumage" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'piece allumage') echo 'selected';?> >Piece allumage</option>
+                                        <option value="climatisation" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'climatisation') echo 'selected';?> >Climatisation</option>
+                                        <option value="carrosserie" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'carrosserie') {echo 'selected';} ?> >Carrosserie</option>
+                                        <option value="alternateur" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'alternateur') echo 'selected';?> >Alternateur</option>
+                                        <option value="filtre" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'filtre') echo 'selected';?> >Filtre</option>
+                                        <option value="direction" <?php if(isset($article_actuel) && $article_actuel['categorie'] == 'direction') echo 'selected';?> >Direction</option>
+                                    </select>
+
+                                </div>
+                                <div id="infos_modif_droite">
+                                    <!-- script JavaScript -->
+                                    <script>
+
+                                        function cacher2() {
+                                            if(document.getElementById('buton2').innerText=="ajouter") {
+                                                document.getElementById('modele_voiture2').style.display = "inline-block"; 
+                                                document.getElementById('buton2').innerText="supprimer"; 
+                                            }
+                                            else {
+                                                document.getElementById('modele_voiture2').style.display = "none";  
+                                                document.getElementById('modele_voiture3').style.display = "none";
+                                                document.getElementById('modele_voiture4').style.display = "none";
+                                                document.getElementById('modele_voiture5').style.display = "none";
+                                                document.getElementById('buton2').innerText="ajouter";
+                                                document.getElementById('buton3').innerText="ajouter";
+                                                document.getElementById('buton4').innerText="ajouter";
+                                                document.getElementById('buton5').innerText="ajouter";
+                                            }
+                                            
+                                        }
+
+                                        function cacher3() {
+                                            if(document.getElementById('buton3').innerText=="ajouter") {
+                                                document.getElementById('modele_voiture2').style.display = "inline-block"; 
+                                                document.getElementById('buton2').innerText="supprimer"; 
+                                                document.getElementById('modele_voiture3').style.display = "inline-block"; 
+                                                document.getElementById('buton3').innerText="supprimer"; 
+                                            }
+                                            else {
+                                                document.getElementById('modele_voiture3').style.display = "none"; 
+                                                document.getElementById('modele_voiture4').style.display = "none";
+                                                document.getElementById('modele_voiture5').style.display = "none"; 
+                                                document.getElementById('buton3').innerText="ajouter";
+                                                document.getElementById('buton4').innerText="ajouter";
+                                                document.getElementById('buton5').innerText="ajouter";
+                                            }
+                                        }
+                                        function cacher4() {
+                                            if(document.getElementById('buton4').innerText=="ajouter") {
+                                                document.getElementById('modele_voiture2').style.display = "inline-block"; 
+                                                document.getElementById('buton2').innerText="supprimer"; 
+                                                document.getElementById('modele_voiture3').style.display = "inline-block"; 
+                                                document.getElementById('buton3').innerText="supprimer"; 
+                                                document.getElementById('modele_voiture4').style.display = "inline-block"; 
+                                                document.getElementById('buton4').innerText="supprimer"; 
+                                            }
+                                            else {
+                                            document.getElementById('modele_voiture4').style.display = "none";  
+                                            document.getElementById('modele_voiture5').style.display = "none";
+                                            document.getElementById('buton4').innerText="ajouter";
+                                            document.getElementById('buton5').innerText="ajouter";
+                                            }
+                                        }
+                                        function cacher5() {
+                                            if(document.getElementById('buton5').innerText=="ajouter") {
+                                                document.getElementById('modele_voiture2').style.display = "inline-block"; 
+                                                document.getElementById('buton2').innerText="supprimer"; 
+                                                document.getElementById('modele_voiture3').style.display = "inline-block"; 
+                                                document.getElementById('buton3').innerText="supprimer"; 
+                                                document.getElementById('modele_voiture4').style.display = "inline-block"; 
+                                                document.getElementById('buton4').innerText="supprimer"; 
+                                                document.getElementById('modele_voiture5').style.display = "inline-block"; 
+                                                document.getElementById('buton5').innerText="supprimer"; 
+                                            }
+                                            else {
+                                            document.getElementById('modele_voiture5').style.display = "none";  
+                                            document.getElementById('buton5').innerText="ajouter";
+                                            }
+                                        }
+
+                                    </script>
+                                    <label for="nb_voiture">Pour combien de voiture concerne-t-il ? (max 5): </label>
+                                    <input id="" type="number" name="nb_voiture" style="width:120px;"  min="1" max="5" placeholder="votre stock"></input>
+                                    </br></br>
+                                    <label for ="modele_voiture" >Marque de la voiture : </label>
+                                    </br>
+                                    <?php
+                                        for($i = 1; $i <= 5; $i++) {
+                                            $require = '' ;
+                                            $fonction = 'cacher'.$i.'()';
+                                            if($i==1) {
+                                                $fonction = '';
+                                            }
+                                            echo'<label class="modif_modele_voiture" for="modele">modele n°'.$i.'</label>';
+                                            echo ' <select name="modele_voiture'.$i.'" required="'.$require.'" id="modele_voiture'.$i.'" > ';
+                                            $voiture = $fonction_sql->executeRequete("select distinct marque from voiture");
+                                            while($marques = $voiture->fetch_assoc()) {
+                                                echo '<optgroup label="'.$marques['marque'].'">';
+                                                $voiture2 = $fonction_sql->executeRequete("select * from voiture where marque = '$marques[marque]'");
+                                                while($modeles = $voiture2->fetch_assoc()){
+                                                    echo '<option value="'.$modeles['modele'].'_'.$marques['marque'].'">'.$modeles['modele'].'</option> ';
+                                                }
+                                                echo '</optgroup>';
+                                            }
+                                                
+                                            ?>
+                                            </select> 
+                                            <?php
+                                                if($i != 1){
+                                                    echo '<a id="buton'.$i.'" OnClick="'.$fonction.'" >suprimer</a>';
+                                                }
+                                            ?>
+                                            </br>
+                                            <?php
+                                        }
+                                    ?>
+                                    <br><br><br>
+                                   
+                                </div>
+                                <br><br>
+                                     <input class="a_changer" style="margin-left:500px;" type="submit" value="modifier">
+                                    <a class="a_changer" style="margin-left:0px" href="produit-afficher.php?action=afficher">Voir vos articles</a>
+                                    <a class="a_changer" style="margin-left:0px" href="profil.php?action=articles">Retour à vos articles</a>
                             </form>
                         </div>
                     </div>
-                    <br><br>
-                    <a class="a_changer" style="margin-left:950px" href="produit-afficher.php?action=afficher">Voir vos articles</a>
-                    <a class="a_changer" style="margin-left:950px" href="profil.php?action=articles">Retour à vos articles</a>
+                   
                 </div>
             </article>
         <?php
@@ -184,6 +299,24 @@ if(isset($_GET['action']) && $_GET['action'] == "modification") {
                 $fonction_sql->executeRequete("update photo set cheminPhoto = '$newChemin' where idPhoto =(SELECT idPhoto from affiche where idArticle = $_GET[id_article] )");
                 echo '<p class = validation>validation ok pour '.$_POST['nom_article'].'</p>';
             }
+            
+        }
+        if(!empty($_POST['nb_voiture'])) {
+            $nombre_voiture = $_POST['nb_voiture'];
+            $voitures = $fonction_sql->executeRequete("SELECT * from peut_convenir_avec where idArticle= '$_GET[id_article]'");
+             //on supprime toute les liens avec l'article s'il y en a 
+            if($voitures->num_rows != 0) {
+                $fonction_sql->executeRequete("DELETE from peut_convenir_avec where idArticle = '$_GET[id_article]'");
+            }
+            for($ind = 1; $ind <= $nombre_voiture; $ind++) {
+                $id_post_voiture = 'modele_voiture'.$ind;
+                $marque_post = substr($_POST['modele_voiture'.$ind], -7);
+                $modele_post = substr($_POST['modele_voiture'.$ind], 0, strlen($_POST['modele_voiture'.$ind])-8);
+                //on re insere les bonnes liens
+                $fonction_sql->executeRequete("INSERT into peut_convenir_avec (idArticle, idVoiture) values('$_GET[id_article]', 
+                (SELECT idVoiture from voiture where marque = '$marque_post' and modele = '$modele_post'))");
+            }
+           
             
         }
         if(!empty($_POST['prix_article'])) {
