@@ -32,7 +32,7 @@ $fonction_sql = new Fonction_sql();
 					</a>
 
 					<!--COMPTE-->
-					<a href="../vue/profil.php"> 
+					<a href="utilisateurs/profil"> 
 						<img src="inc/img/compte.png" class="icone" alt=""> Mon profil
 					</a>';
 					

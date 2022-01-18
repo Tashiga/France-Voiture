@@ -1,10 +1,12 @@
 <?php 
 require_once(ROOT."inc/initialisation.php");
-require_once(ROOT."inc/haut_site.php");
+
+
+$fonction_sql = new Fonction_sql();
 
 //--------------------------------- AFFICHAGE HTML ---------------------------------//
 
-?>
+?> 
 <main style="">
 	<section id="sectionProfil">
 		<?php 
@@ -13,19 +15,16 @@ require_once(ROOT."inc/haut_site.php");
     		header("location:connexion.php");
 		}
 		else {
-			if (!ISSET($_GET['action'])) {
-				$_GET['action']='informations';
-			}
 			//si client
 			if ($_SESSION['client']['statut']==0) {
 				?>
 				<table id="table_vendeur">
 					<tbody>
 						<tr id="table">
-							<td><a href= "profil.php?action=informations">Mes informations</button></td>
-							<td><a href= "profil.php?action=commandes">Mes commandes</button></td>
-							<td><a href= "profil.php?action=discussions">Mes discussions</button></td>
-							<td><a href= "profil.php?action=notes">Mes notes attribuées</button></td>
+							<td><a href= "./profil/informations">Mes informations</button></td>
+							<td><a href= "./profil/commandes">Mes commandes</button></td>
+							<td><a href= "./profil/discussions">Mes discussions</button></td>
+							<td><a href= "./profil/notes">Mes notes attribuées</button></td>
 						</tr>
 					</tbody>
 				</table>
@@ -37,10 +36,10 @@ require_once(ROOT."inc/haut_site.php");
 				<table id="table_vendeur">
 					<tbody>
 						<tr id="table">
-							<td><a href= "profil.php?action=informations">Mes informations</button></td>
-							<td><a href= "profil.php?action=commandes">Mes commandes</button></td>
-							<td><a href= "profil.php?action=discussions">Mes discussions</button></td>
-							<td><a href= "profil.php?action=articles">Mes articles</button></td>
+							<td><a href= "./profil/informations">Mes informations</button></td>
+							<td><a href= "./profil/commandes">Mes commandes</button></td>
+							<td><a href= "./profil/discussions">Mes discussions</button></td>
+							<td><a href= "./profil/articles">Mes articles</button></td>
 						</tr>
 					</tbody>
 				</table>
@@ -50,7 +49,6 @@ require_once(ROOT."inc/haut_site.php");
 		?>
 	</section>
 </main>
-		
 <?php 
-require_once("../inc/bas_site.php");
+require_once(ROOT."inc/bas_site.php");
 

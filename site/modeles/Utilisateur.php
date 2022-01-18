@@ -2,7 +2,7 @@
 require_once(ROOT."inc/initialisation.php");
 
 class Utilisateur{
-    protected $fonction_sql;
+    private $fonction_sql;
 
     function __construct() {
         $this->fonction_sql = new Fonction_sql();

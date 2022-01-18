@@ -13,14 +13,23 @@ $param = explode('/', $_GET['p']);
 if($param[0] != ""){
     $controleur = ucfirst($param[0]);
 
-    // regarde s'il y a un deuxième paramètre si non, indique 'accueil'
-    $action = isset($param[1]) ? $param[1]: 'accueil';
-
     // récupère le fichier controleur correspondant de l'URL
     require_once(ROOT."controleurs/".$controleur.'.php');
 
     // instance le controleur correspondant
     $controleur = new $controleur();
+
+    // regarde s'il y a un deuxième paramètre
+    if(isset($param[1])){
+        $action = $param[1];
+    }
+    else if(isset($_GET['action'])){
+        $action = $_GET['action'];
+    }
+    else {
+        $action = $_GET['action'];
+    }
+    
 
     // vérifie que la méthode existe dans le controleur
     if(method_exists($controleur, $action)){
@@ -28,7 +37,7 @@ if($param[0] != ""){
     }
     else{
         http_response_code(404);
-        echo "cette action n'existe pas";
+        echo "cette action n'existe pas $action";
     }
 }
 else {

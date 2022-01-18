@@ -116,5 +116,4 @@ class Utilisateurs extends Controleur {
         $this->render('profil');
     }
 
-
 }

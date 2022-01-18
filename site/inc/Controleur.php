@@ -7,7 +7,8 @@ abstract class Controleur{
         $this->$modele = new $modele();
     }
 
-    function render(string $fichier){
+    function render(string $fichier, array $data = []){
+        extract($data);
         require_once(ROOT.'vues/'.$fichier.'.php');
     }
 }
