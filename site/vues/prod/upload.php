@@ -5,7 +5,7 @@ require_once(ROOT."./vues/menu_profil.php");
 
 
     <article id="ajouter_article" style="">
-        <div class="article_profil">
+        <div class="ajouter">
             <h2 class="a_center">Ajouter un article</h2>
             <p class="a_center" style="font-size:small;">Veuillez remplir les informations ci-dessous, afin d'ajouter votre article.</p>
             <form method="POST" action="" enctype="multipart/form-data"> 

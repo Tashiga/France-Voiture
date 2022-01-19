@@ -44,8 +44,8 @@ require_once(ROOT."inc/haut_site.php");
                     }
                 }
                 
-                $contenu .= '<td><a class="a_changer" href="./index.php?ctrl=produits&action=modification&id_article=' . $article['idArticle'] .'">Modifier</a></td>';
-                $contenu .= '<td><a class="a_changer" href="./index.php?ctrl=produits&action=suppression&id_article=' . $article['idArticle'] .'" OnClick="return(confirm(\'En êtes vous certain de vouloir supprimer cet article ?\'));">Supprimer</a></td>';
+                $contenu .= '<td><a class="a_changer" href="./index.php?ctrl=produits&amp;action=modification&amp;id_article=' . $article['idArticle'] .'">Modifier</a></td>';
+                $contenu .= '<td><a class="a_changer" href="./index.php?ctrl=produits&amp;action=suppression&amp;id_article=' . $article['idArticle'] .'" OnClick="return(confirm(\'En êtes vous certain de vouloir supprimer cet article ?\'));">Supprimer</a></td>';
                 $contenu .= '</tr>';
             endforeach;
             echo $contenu;

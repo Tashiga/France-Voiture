@@ -11,8 +11,8 @@ class Produits extends Controleur{
         if (isset($_GET['action'])){
             $action = $_GET['action'];
         
-            $_GET['id_article'] = isset($_GET['id_article']) ?: NULL;
-        
+            if (isset($_GET['id_article'])){
+            }
             switch($action){
                 case "modification":
                     $this->modification($_GET['id_article']);
@@ -91,13 +91,12 @@ class Produits extends Controleur{
     function suppression($id){
         $this->modele->supprimer_produit($id);
         $redirect = '<a href="./produits/affichage">Cliquer ici</a>'; 
-        echo "Suppression ok $redirect";
+        echo "Suppression article $id $redirect";
     }
 
     
     function modification($id){
         $resultat = $this->modele->select_where_idArticle('article', $id);
-
         $affichage = $this->modele->select_where_idArticle('affiche', $id);
         $chemin_photo_a_supprimer = NULL;
         while($autre = $affichage->fetch_assoc()) {

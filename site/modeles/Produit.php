@@ -43,20 +43,24 @@ class Produit{
         $resultat = $this->fonction_sql->executeRequete("SELECT * FROM article WHERE idArticle=$id_article");
         //Recupere l'id du photo
         $produit_a_supprimer = $this->fonction_sql->executeRequete("SELECT * FROM affiche WHERE idArticle =$id_article");
-        while($autre = $produit_a_supprimer->fetch_assoc()) {
-        
-            //supprime l'affichage
-            $this->fonction_sql->executeRequete("DELETE FROM affiche WHERE idArticle =$id_article");
-            $chemin_photo_a_supprimer = $this->fonction_sql->executeRequete("SELECT * FROM photo WHERE idPhoto='".$autres['idPhoto']."'");
-            $autres = $chemin_photo_a_supprimer->fetch_assoc();
-            if(!empty($autre['idArticle']) && file_exists($autres['cheminPhoto'])) {
-                unlink($autres['cheminPhoto']);
-            }
-
-            $this->fonction_sql->executeRequete("DELETE FROM photo WHERE idPhoto='".$autre['idPhoto']."'");
+        if ($produit_a_supprimer -> num_rows == 0){
             $this->fonction_sql->executeRequete("DELETE FROM ajouter WHERE idArticle=$id_article");
-            $this->fonction_sql->executeRequete("DELETE FROM article WHERE idArticle=$id_article");
-           
+            $this->fonction_sql->executeRequete("DELETE FROM article WHERE idArticle=$id_article"); 
+        }
+        else {
+            while($autres = $produit_a_supprimer->fetch_assoc()) {
+                //supprime l'affichage
+                $this->fonction_sql->executeRequete("DELETE FROM affiche WHERE idArticle =$id_article");
+                $chemin_photo_a_supprimer = $this->fonction_sql->executeRequete("SELECT * FROM photo WHERE idPhoto='".$autres['idPhoto']."'");
+                $autres = $chemin_photo_a_supprimer->fetch_assoc();
+                if(!empty($autre['idArticle']) && file_exists($autres['cheminPhoto'])) {
+                    unlink($autres['cheminPhoto']);
+                }
+
+                $this->fonction_sql->executeRequete("DELETE FROM photo WHERE idPhoto='".$autres['idPhoto']."'");
+                $this->fonction_sql->executeRequete("DELETE FROM ajouter WHERE idArticle=$id_article");
+                $this->fonction_sql->executeRequete("DELETE FROM article WHERE idArticle=$id_article"); 
+            }
         }
     }
 
