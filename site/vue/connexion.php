@@ -65,10 +65,8 @@ if($_POST) {
 	//$contenu .=  "email : " . $_POST['email'] . "<br>mdp : " .  $_POST['password'] . "";
 	$resultat = $fonction_sql->executeRequete("SELECT * FROM $table WHERE email='$_POST[email]'");
 	if($resultat->num_rows != 0) {
-		//$contenu .=  '<div style="background:green; position:absolute;">mail connu!</div>';
 		$client = $resultat->fetch_assoc();
 		if($client['mdp'] == $_POST['password']) {
-			//$contenu .= '<div class="validation">mdp connu!</div>';
 			foreach($client as $indice => $element) {
 				if($indice != 'mdp') {
 					$_SESSION['client'][$indice] = $element;
@@ -79,8 +77,23 @@ if($_POST) {
 				}
 				else {
 					$_SESSION['client']['statut'] = 0;
+					
 				}
 			}
+			if($table!='vendeur') {
+				//completer son panier si pas vide
+				$monIdentifiant = $_SESSION['client']['idClient'];
+				$req_panier = $fonction_sql->executeRequete("SELECT * FROM avoir_panier natural join article where idClient = $monIdentifiant");
+				//si panier contient articles
+				if($req_panier->num_rows > 0) {
+					//pour chaque article du panier
+					$panier = $req_panier->fetch_assoc();
+					for($i = 1; $i <= $req_panier->num_rows; $i++) {
+						$fonction_sql->recupererPanier($panier['nom'], $panier['idArticle'], $panier['nbArticle'], $panier['montant']);
+					}
+				}
+			}
+			
 			//diriger vers la page profil
 			header("location:profil.php");
 		}

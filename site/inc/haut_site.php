@@ -79,9 +79,9 @@
             		<!--BARRE DE NAVIGATION-->
 			<nav>
 				<ul>
-					<li><a href="../vue/citroen.php">Citroen</a></li>
-					<li><a href="../vue/renault.php">Renault</a></li>
-					<li><a href="../vue/peugeot.php">Peugeot</a></li>
+					<li><a href="../vue/boutique.php?marque=Citroen">Citroen</a></li>
+					<li><a href="../vue/boutique.php?marque=Renault">Renault</a></li>
+					<li><a href="../vue/boutique.php?marque=Peugeot">Peugeot</a></li>
 				</ul>
 			</nav>	
   		</header>

@@ -82,7 +82,7 @@ require_once("../inc/haut_site.php");
 							<tr>
 								<td class="gauche">Probleme avec ma commande ?</td>
 								<td class="droite">Vous rencontrez des problèmes avec votre commande : délais de livraison non respecter, article dommagé, ...
-									</br>Remplissez le <a href="formulaire.php">formulaire</a> en indiquant en detail votre problème.
+									</br>Remplissez le <a href="formulaire.php?type=signaler">formulaire</a> en indiquant en detail votre problème.
 									Envoyez ce formulaire et le service client se chargera de vous répondre dans les plus bref délais.
 									Ainsi, le service client se chargera de contacter le vendeur concerné ou de procéder à un remboursement (si possible).
 								</td>
@@ -107,7 +107,7 @@ require_once("../inc/haut_site.php");
 					</thead>
 					<tbody>
 						<tr>
-							<td style=" text-align:justify">Vos questions ne figurent pas, remplissez et envoyer nous le formulaire (<a href="formulaire.php">ici</a>) et nous vous repondrons le plus rapidement possible.</td>
+							<td style=" text-align:justify">Vos questions ne figurent pas, remplissez et envoyer nous le formulaire (<a href="formulaire.php?type=signaler">ici</a>) et nous vous repondrons le plus rapidement possible.</td>
 						</tr>
 					</tbody>
 				</table>

@@ -8,18 +8,18 @@ require_once("../inc/haut_site.php");
                 <section id="haut-accueil">
                     <section id="voiture" >
                         <div id="citroen">
-                            <a href="citroen.php"> 
+                            <a href="boutique.php?marque=Citroen"> 
                                 <img id="img-citroen-accueil" src="../inc/img/logoCitroen.png" class="img_accueil" alt="">
                             </a>
                         </div>
                         <div id="droite">
                             <div id="renault-accueil">
-                                <a href="renault.php"> 
+                                <a href="boutique.php?marque=Renault"> 
                                     <img id="img-renault-accueil" src="../inc/img/logoRenault.jpg" class="img_accueil" alt="">
                                 </a>
                             </div>
                             <div id="peugeot-accueil">
-                                <a href="peugeot.php"> 
+                                <a href="boutique.php?marque=Peugeot"> 
                                     <img id="img-peugeot-accueil" src="../inc/img/logoPeugeot.png" class="img_accueil" alt="">
                                 </a>
                             </div>
@@ -58,7 +58,7 @@ require_once("../inc/haut_site.php");
                         un moyen de vous faire rembourser.
                     </p>
                     <p>
-                        remplissez le formulaire <a href="formulaire.php" id="formulaire">ici</a>
+                        remplissez le formulaire <a href="formulaire.php?type=signaler" id="formulaire">ici</a>
                     </p>
                 </section>
             </section>
