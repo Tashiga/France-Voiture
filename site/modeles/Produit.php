@@ -25,14 +25,14 @@ class Produit{
 
     function get_produits(){
         $id = $_SESSION['client']['idVendeur'];
-        $mesArticles= $this->fonction_sql->executeRequete("SELECT idArticle FROM ajouter WHERE idvendeur = '$id'");
+        //$mesArticles= $this->fonction_sql->executeRequete("SELECT idArticle FROM ajouter WHERE idvendeur = '$id'");
         $resultat = $this->fonction_sql->executeRequete("SELECT * FROM article natural join ajouter where idvendeur = '$id'");
         return $resultat;
     }
 
 
     function get_photo($id_article){
-        $resultat = $this->fonction_sql->executeRequete("SELECT cheminPhoto FROM photo NATURAL JOIN affiche WHERE idArticle = '$id_article'");
+        $resultat = $this->fonction_sql->executeRequete("SELECT * FROM photo NATURAL JOIN affiche WHERE idArticle = '$id_article'");
         return $resultat;
     }
 

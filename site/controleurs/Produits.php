@@ -83,7 +83,7 @@ class Produits extends Controleur{
 
     function affichage(){
         $articles = $this->modele->get_produits();
-        #$chemin = $this->modele->get_photo();
+        //$chemin = $this->modele->get_photo($id);
         $this->render("prod/affichage_liste", ['articles' => $articles]);
     }
 

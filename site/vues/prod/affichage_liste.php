@@ -28,19 +28,18 @@ require_once(ROOT."inc/haut_site.php");
                 $contenu .= '<tr>';
                 $contenu .= '<td></td>';
                     
-                /*
-                while ($row = $chemin->fetch_assoc()) {
-                    echo $row['cheminPhoto'];
-                    $contenu .= '<td><img  class="icone" src="'.$row['cheminPhoto'].'"></td>';
-                    
-                }
-                */
-               
                 foreach ($article as $indice => $information)
                 {
+                    echo " $indice ";
                     if($indice != "idvendeur")
                     {
                         $contenu .= '<td>' . $information . '</td>';
+                    }
+                    if($indice == "cheminPhoto"){
+                        echo $indice;
+                        echo "natacha";
+                        $indice .= '<td><img  class="icone" src="'.$indice.'"></td>';
+
                     }
                 }
                 
