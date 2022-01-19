@@ -1,24 +1,41 @@
 <?php
-// require_once("haut_site.php");
-// require_once("bas_site.php");
+abstract class Fonction_sql{
+	/*
+    // infos BD
+    private $dns = "mysql:host=localhost;dbname=FranceVoiture;";
+    private $user = "root";
+    private $password = "";
 
-class Fonction_sql {
-	
-	public function  __construct() {}
+    // connexion à la BD
+    protected $_connexion;
+
+    function connexion_bd(){
+        $this->_connexion = null;
+
+        try{
+            $this->_connexion = new PDO($this->dns, $this->user, $this->password);
+            // sécuriser les transactions entre le client et le server
+            $this->_connexion->exec('set names utf8');
+        }
+        catch(PDOException $e){
+            echo 'Un problème est survenu lors de la tentative de connexion à la BDD :'.$e->getMessage();
+        }
+    }
+	*/
 
 
-	//fonction qui permet d'executer les requete sql
-	function executeRequete($req){
+    //fonction qui permet d'executer les requete sql
+	function executeRequete($req) {
 	    global $mysqli;
 	    $resultat = $mysqli->query($req);
 	    if(!$resultat) {
 			die("Erreur sur la requete sql.<br>Message : " . $mysqli->error . "<br>Code: " . $req);
 	    }
-	    return $resultat; // 
+	    return $resultat; 
 	}
 	 
 	//fonction qui permet de faciliter le debug en l'affichant
-	function debug($var, $mode = 1){
+	function debug($var, $mode = 1) {
 	    echo '<div style="position:absolute; top:10px; right:15px; background: orange; padding: 5px; float: right; clear: both; ">';
 	    $trace = debug_backtrace();
 	    $trace = array_shift($trace);
@@ -32,20 +49,4 @@ class Fonction_sql {
 	    echo '</div>';
 	}
 
-	//fonction qui permet de savoir si une session est en cours
-	function utilisateurEstConnecte() { 
-		if(!isset($_SESSION['client'])) 
-			return false;
-		else 
-			return true;
-	}
-
-	//fonction qui permet de savoir si une session est en cours et qu'il s'agit d'un vendeur
-	function utilisateurEstConnecteEtEstVendeur() {
-		if($this->utilisateurEstConnecte() && $_SESSION['client']['statut'] == 1) 
-			return true;
-    	else 
-			return false;
-	}
 }
-?>

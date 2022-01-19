@@ -1,4 +1,4 @@
-<?php require_once("./inc/haut_site.php"); ?>
+<?php require_once(ROOT."inc/haut_site.php");  ?>
 
 <main style=" background-color: #e4e4e4;">
 			<section id="sectionConnexion">
@@ -27,4 +27,4 @@
 
 		</main>
 
-<?php require_once("./inc/bas_site.php"); ?>
+<?php require_once(ROOT."inc/bas_site.php"); ?>

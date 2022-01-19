@@ -6,12 +6,10 @@ require_once(ROOT."vues/Vue_profil.php");
 class Profil extends Controleur {
     private $modele;
     private $vue;
-    private $fonction_sql;
 
     function __construct(){
         $this->modele = new Utilisateur();
         $this->vue = new Vue_profil();
-        $this->fonction_sql = new Fonction_sql();
     }
 
     function informations(){

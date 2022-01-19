@@ -10,4 +10,16 @@ class Accueil extends Controleur{
     function accueil(){
         $this->render('accueil');
     }
+
+    function aide(){
+        $this->render('aide');
+    }
+
+    function contact(){
+        $this->render('contact');
+    }
+
+    function apropos(){
+        $this->render('apropos');
+    }
 }

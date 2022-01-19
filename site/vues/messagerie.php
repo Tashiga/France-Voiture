@@ -1,6 +1,5 @@
 <?php 
 //--------------------------------- AFFICHAGE HTML ---------------------------------//
-require_once(ROOT."inc/initialisation.php");
 require_once("menu_profil.php"); ?>
 
     <article id="afficher_message">

@@ -1,9 +1,9 @@
 <?php 
-require_once(ROOT."inc/initialisation.php");
+require_once(ROOT."inc/Initialisation.php");
 require_once(ROOT."inc/haut_site.php");
 
 
-$fonction_sql = new Fonction_sql();
+$init = new Initialisation();
 
 //--------------------------------- AFFICHAGE HTML ---------------------------------//
 
@@ -12,7 +12,7 @@ $fonction_sql = new Fonction_sql();
 	<section id="sectionProfil">
 		<?php 
 		//si utilisateur n'est pas connecte
-		if(!$fonction_sql->utilisateurEstConnecte()) {
+		if(!$init->utilisateurEstConnecte()) {
     		header("location:connexion.php");
 		}
 		else {

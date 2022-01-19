@@ -1,6 +1,5 @@
 <?php
 require_once(ROOT."modeles/Message.php");
-//require_once(ROOT."vues/Vue_messagerie.php");
 
 class Messagerie extends Controleur{
     private $modele;

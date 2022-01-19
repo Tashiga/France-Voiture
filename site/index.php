@@ -1,11 +1,30 @@
 <?php
+//--------- CONNEXION BDD
+// chez nous
+$mysqli = new mysqli("localhost", "root", "", "francevoiture");
+//a l'iut 
+//$mysqli = new PDO("mysql:host=database-etudiants.iut.univ-paris8.fr;dbname=dutinfopw201659", "dutinfopw201659", "vupuqyja");
+//si erreur a la connexion
+if ($mysqli->connect_error) die('Un problème est survenu lors de la tentative de connexion à la BDD : ' . $mysqli->connect_error);
+
+//encodage de la base de donnée
+//$mysqli->set_charset("utf8");
+
+//--------- SESSION
+session_start();
+
+//--------- RACINE
 // génère une constante qui contient le chemin vers index.php
 define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
 
-
-#require_once(ROOT.'inc/Database.php');
+require_once(ROOT.'inc/Fonction_sql.php');
 require_once(ROOT.'inc/Controleur.php');
+require_once(ROOT.'inc/Initialisation.php');
+$init = new Initialisation();
 
+
+
+//--------- GESTION PAGES
 
 if(isset($_GET['ctrl'])){
     $controleur = ucfirst($_GET['ctrl']);

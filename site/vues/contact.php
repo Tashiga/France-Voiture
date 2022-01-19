@@ -1,7 +1,6 @@
 <?php 
 //--------------------------------- AFFICHAGE HTML ---------------------------------//
-require_once("../inc/initialisation.php");
-require_once("../inc/haut_site.php"); 
+require_once(ROOT."inc/haut_site.php"); 
 ?>
 <main style="height:auto;margin-bottom:10px">
 	<section id="sectionContact">
@@ -65,4 +64,4 @@ require_once("../inc/haut_site.php");
 	</section>
 </main>
 
-<?php require_once("../inc/bas_site.php"); ?>
+<?php require_once(ROOT."inc/bas_site.php"); ?>

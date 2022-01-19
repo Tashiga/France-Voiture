@@ -463,19 +463,15 @@ main{
     color:#DC3030;
 }
 
-/***************************************A Panier***************************************/
+/***************************************Panier***************************************/
 #sectionAPanier h1{
-    text-align: center;
-    color: #DC3030;
+    margin-left: 50px;
+    color: #1E2754;
+    margin-bottom:0px;
 }
 #sectionAPanier a{
     text-decoration: none;
     color:black;
-    background-color:#e0dfde;
-    border-radius: 20px;
-    padding: 5px;
-    border: 3px solid #e0dfde;
-    box-shadow: 3px 5px 5px #696868;
 }
 
 #sectionAPanier a:hover{
@@ -904,6 +900,162 @@ a:hover{
 
 #textarea_message{
     margin-bottom: -20px;
+}
+
+/**************************************boutique***************************************/
+
+#menu_modele {
+    /* border: 3px solid red; */
+    float: left; 
+    width: 30%;  
+    min-height: 390px; 
+    margin-right: 10px; 
+    padding-top: 0px; 
+    text-align: center; 
+    /* background: #1E2754; */
+}
+
+#menu_modele ul {
+    list-style: none;
+    padding: 0;
+    margin:0;
+}
+
+
+#menu_modele_droite {
+    /* border: 3px solid blue; */
+    float: right; 
+    width: 65%; 
+}
+
+#menu_modele ul li a {
+    text-decoration: none;
+    display: block;
+    margin: 0;
+}
+
+#img_boutique{
+    width:290px;
+    height:190px;
+    margin:50px;
+    margin-left: 250px;
+}
+
+.to_center {
+    text-align: center;
+    
+}
+
+.article_boutique {
+    float: left; 
+    width: 30%; 
+    text-align: center; 
+    border-bottom: 1px solid #c0c0c0;
+    /*pour agrandir la taille des articles*/
+    /* padding: 5%;  */
+}
+
+.article_boutique:hover{
+    box-shadow: 3px 3px 3px 3px grey;
+}
+
+.ombre {
+    text-decoration: none;
+    color: black;
+}
+
+/***************************************fiche-produit***************************************/
+
+#sectionFicheProduit{
+    margin:50px;
+}
+
+#fiche_produit{
+    color:#1E2754;
+    
+}
+
+#fiche_produit H2 {
+    margin-left: 30px;
+    text-align: justify;
+}
+
+#date_article{
+    font-style: italic;
+    text-align: right;
+    margin-top: -10px;
+    margin-right: 30px;
+}
+
+#mettre_gras{
+    font-weight: bold;
+    padding-right: 6px;
+}
+
+.infos_article{
+    display: inline-block;
+}
+
+#fiche_produit_corps {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+    /* border: 3px solid red; */
+}
+
+#fiche_produit_corps ul{
+    margin-left: 50px;
+}
+
+#fiche_produit_corps form {
+    padding: 10px;
+    padding-left: 20px;
+}
+
+#fiche_produit_corps form select{
+    margin-left: 20px;
+}
+
+#img_fiche_produit{
+    width: 20%;
+    height: 30%;
+}
+#bouton_ajouter_panier{
+    margin-left: 30px;
+}
+
+
+.bouton_fiche_produit{
+    text-decoration:none;
+    font-weight:bold;
+    color:#1E2754;
+}
+
+.bouton_fiche_produit:hover{
+    color:#DC3030;
+    font-weight: bold;
+}
+
+#bouton_gauche{
+    margin-left: 50px;
+}
+
+#bouton_centre{
+    margin-left: 150px;
+}
+
+#bouton_droite{
+    margin-left: 150px;
+}
+
+
+/***************************************Formulaire-commande***************************************/
+
+#sectionCommande{
+    background: #f2f2f2;
+    margin-top: 0%;
+    padding: 20px;
 }
 
 /***************************************FOOTER***************************************/

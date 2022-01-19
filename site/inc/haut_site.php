@@ -1,5 +1,5 @@
-<?php require_once("./inc/initialisation.php"); 
-$fonction_sql = new Fonction_sql();
+<?php require_once("./inc/Initialisation.php"); 
+$fonction_sql = new Initialisation();
 ?>
 
 <!doctype html>
@@ -27,7 +27,7 @@ $fonction_sql = new Fonction_sql();
 				//si une session existe
 				if($fonction_sql->utilisateurEstConnecte()){
 					echo '<!--AIDE-->
-					<a href="../vue/aide.php"> 
+					<a href="accueil/aide"> 
 						<img src="inc/img/aide.png" class="icone" alt=""> Aide
 					</a>
 
@@ -39,7 +39,7 @@ $fonction_sql = new Fonction_sql();
 					//si cette session appartient a un client
 					if($fonction_sql->utilisateurEstConnecteEtEstVendeur()==false){
 						echo '<!--PANIER-->
-						<a href="../vue/panier.php"> 
+						<a href="/utilisateurs/panier"> 
 							<img src="inc/img/panier.png" class="icone" alt=""> Mon panier
 						</a>';
 	
@@ -52,7 +52,7 @@ $fonction_sql = new Fonction_sql();
 				//si pas de session en cours
 				else {
 					echo '<!--AIDE-->
-					<a href="../vue/aide.php"> 
+					<a href="accueil/aide"> 
 						<img src="inc/img/aide.png" class="icone" alt=""> Aide
 					</a>
 	
@@ -62,7 +62,7 @@ $fonction_sql = new Fonction_sql();
 					</a>
 	
 					<!--PANIER-->
-					<a href="../vue/panier.php"> 
+					<a href="utilisateurs/panier"> 
 						<img src="inc/img/panier.png" class="icone" alt=""> Mon panier
 					</a>';
 				}
@@ -82,9 +82,9 @@ $fonction_sql = new Fonction_sql();
             		<!--BARRE DE NAVIGATION-->
 			<nav>
 				<ul>
-					<li><a href="../vue/citroen.php">Citroen</a></li>
-					<li><a href="../vue/renault.php">Renault</a></li>
-					<li><a href="../vue/peugeot.php">Peugeot</a></li>
+					<li><a href="../vue/boutique.php?marque=Citroen">Citroen</a></li>
+					<li><a href="../vue/boutique.php?marque=Renault">Renault</a></li>
+					<li><a href="../vue/boutique.php?marque=Peugeot">Peugeot</a></li>
 				</ul>
 			</nav>	
   		</header>

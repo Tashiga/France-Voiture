@@ -1,7 +1,9 @@
 <?php
-require_once(ROOT."inc/initialisation.php");
+require_once("Initialisation.php");
 
 abstract class Controleur{
+
+
     function charge_modele(string $modele){
         require_once(ROOT.'modeles/'.$modele.'.php');
         $this->$modele = new $modele();

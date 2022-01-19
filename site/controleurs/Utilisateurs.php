@@ -4,18 +4,15 @@ require_once(ROOT."modeles/Utilisateur.php");
 
 class Utilisateurs extends Controleur {
     private $modele;
-    private $fonction_sql;
 
     function __construct(){
         $this->modele = new Utilisateur();
-        $this->fonction_sql = new Fonction_sql();
     }
 
     function connexion(){
         $this->render("connexion");
 
         if($_POST) {
-            $this->fonction_sql->debug($_POST);
 
             if(ISSET($_POST['vendeur'])) {
                 $table = 'vendeur';
@@ -103,6 +100,26 @@ class Utilisateurs extends Controleur {
             }
             echo $message;
         }
+    }
+
+    function panier(){
+
+
+        if($_SESSION['client']['statut'] ==0) {
+            //completer son panier si pas vide
+            $monIdentifiant = $_SESSION['client']['idClient'];
+            $req_panier = $fonction_sql->executeRequete("SELECT * FROM avoir_panier natural join article where idClient = $monIdentifiant");
+            //si panier contient articles
+            if($req_panier->num_rows > 0) {
+                //pour chaque article du panier
+                $panier = $req_panier->fetch_assoc();
+                for($i = 1; $i <= $req_panier->num_rows; $i++) {
+                    $fonction_sql->recupererPanier($panier['nom'], $panier['idArticle'], $panier['nbArticle'], $panier['montant']);
+                }
+            }
+        }
+        
+
     }
 
 
