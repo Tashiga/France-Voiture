@@ -24,7 +24,7 @@ $fonction_sql = new Fonction_sql();
 						<tr id="table">
 							<td><a href= "./profil/informations">Mes informations</button></td>
 							<td><a href= "./profil/commandes">Mes commandes</button></td>
-							<td><a href= "./profil/discussions">Mes discussions</button></td>
+							<td><a href= "./messagerie/C">Mes discussions</button></td>
 							<td><a href= "./profil/notes">Mes notes attribuées</button></td>
 						</tr>
 					</tbody>
@@ -39,7 +39,7 @@ $fonction_sql = new Fonction_sql();
 						<tr id="table">
 							<td><a href= "./profil/informations">Mes informations</button></td>
 							<td><a href= "./profil/commandes">Mes commandes</button></td>
-							<td><a href= "./profil/discussions">Mes discussions</button></td>
+							<td><a href= "./messagerie/discussions">Mes discussions</button></td>
 							<td><a href= "./profil/articles">Mes articles</button></td>
 						</tr>
 					</tbody>

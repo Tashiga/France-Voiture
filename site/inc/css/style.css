@@ -608,7 +608,7 @@ main{
 .article_profil{
     
     position: absolute;
-    top: 40%;  
+    top: 50%;  
     left: 50%; 
 
     transform: translate(-50%, -50%);
@@ -631,6 +631,7 @@ main{
     background: #db2f2f;
 }
 
+
 .btn_bas {
     float:right;
     display: block;
@@ -646,6 +647,7 @@ a:hover{
     font-weight: bold;
     background: #db2f2f;
 }
+
 
 .lien_vers_messagerie{
     text-decoration:none; 
@@ -669,6 +671,7 @@ a:hover{
 
 #ajouter {
     top:210px;
+    left:60px;
     position:absolute;
     width: 90%;
     bottom: 35px;
@@ -677,7 +680,7 @@ a:hover{
 #ajouter_article {
     display: inline-block;
     position:absolute;
-    top:260px;
+    top:250px;
     left: 80px;
     right: 80px;
     bottom:40px;
@@ -690,18 +693,23 @@ a:hover{
 
 #votre_article{
     display: inline-block;
-  
+    width: 30%;
+    border: 3px solid #1E2754;
+    background: #eaeaea;
 
 }
 
 #bas{
-    top: 90%;
+    display: inline;
+    bottom: 0;
 }
+
 
 #infos_modif{
     display: inline-block;
     position: absolute;
     width: 80%;
+    margin-left: 50px;
 }
 
 #ajouter_article2 {
@@ -737,12 +745,28 @@ a:hover{
     height: 75%;
 }
 
+#menu_marque{
+    width: 20%;
+    text-align: center;
+    float: left;
+    height: 100%;
+}
+
+#ajouter_modele{
+    width: 76%;
+    float: right;
+    padding: 5px;
+    padding-top : 50px;
+    padding-bottom: 50px;
+    height: 75%;
+}
+
 
 /***************************************produit-afficher***************************************/
 #afficher_article {
     display: inline-block;
     position:absolute;
-    top:230px;
+    top:0px;
     left: 80px;
     right: 80px;
     bottom:40px;
