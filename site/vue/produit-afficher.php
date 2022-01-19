@@ -64,8 +64,6 @@ if(isset($_GET['action']) && $_GET['action'] == "afficher") {
 
 //supprimer un article
 if(isset($_GET['action']) && $_GET['action'] == "suppression") {   
-    // $contenu .= $_GET['id_produit']
-    $resultat = $fonction_sql->executeRequete("SELECT * FROM article WHERE idArticle=$_GET[id_article]");
     //Recupere l'id du photo
     $produit_a_supprimer = $fonction_sql->executeRequete("SELECT * FROM affiche WHERE idArticle =$_GET[id_article]");
     while($autre = $produit_a_supprimer->fetch_assoc()) {
@@ -78,6 +76,7 @@ if(isset($_GET['action']) && $_GET['action'] == "suppression") {
         }
         $fonction_sql->executeRequete("DELETE FROM photo WHERE idPhoto='".$autre['idPhoto']."'");
         $fonction_sql->executeRequete("DELETE FROM ajouter WHERE idArticle=$_GET[id_article]");
+        $fonction_sql->executeRequete("DELETE FROM peut_convenir_avec WHERE idArticle=$_GET[id_article]");
         $fonction_sql->executeRequete("DELETE FROM article WHERE idArticle=$_GET[id_article]");
         header("location:produit-afficher.php?action=afficher");
     }
