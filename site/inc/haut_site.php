@@ -1,5 +1,9 @@
-<?php require_once("./inc/Initialisation.php"); 
-$fonction_sql = new Initialisation();
+<?php require_once("./inc/Initialisation.php");
+require_once("./inc/Fonction_sql.php"); 
+
+$init = new Initialisation();
+$fonction_sql = new Fonction_sql();
+
 ?>
 
 <!doctype html>
@@ -25,7 +29,7 @@ $fonction_sql = new Initialisation();
 				<?php 
 
 				//si une session existe
-				if($fonction_sql->utilisateurEstConnecte()){
+				if($init->utilisateurEstConnecte()){
 					echo '<!--AIDE-->
 					<a href="accueil/aide"> 
 						<img src="inc/img/aide.png" class="icone" alt=""> Aide
@@ -37,9 +41,9 @@ $fonction_sql = new Initialisation();
 					</a>';
 					
 					//si cette session appartient a un client
-					if($fonction_sql->utilisateurEstConnecteEtEstVendeur()==false){
+					if($init->utilisateurEstConnecteEtEstVendeur()==false){
 						echo '<!--PANIER-->
-						<a href="/utilisateurs/panier"> 
+						<a href="utilisateurs/panier"> 
 							<img src="inc/img/panier.png" class="icone" alt=""> Mon panier
 						</a>';
 	
@@ -73,18 +77,36 @@ $fonction_sql = new Initialisation();
 			
 			<!--BARRE DE RECHERCHE-->
 			<div id="barre-recherche">
-				<input id="barre" type="text" placeholder="Rechercher">
-				<button id="recherche-btn" type="submit">
-				</button>
+				<form action="" method="GET">
+					<input id="barre" name="barre" type="text" placeholder="Rechercher">
+					<button id="recherche-btn" type="submit" name="recherche"> </button>
+				</form>
 			</div>
 			
 
             		<!--BARRE DE NAVIGATION-->
 			<nav>
 				<ul>
-					<li><a href="../vue/boutique.php?marque=Citroen">Citroen</a></li>
-					<li><a href="../vue/boutique.php?marque=Renault">Renault</a></li>
-					<li><a href="../vue/boutique.php?marque=Peugeot">Peugeot</a></li>
+					<li><a href="index.php?ctrl=accueil&amp;marque=Citroen">Citroen</a></li>
+					<li><a href="index.php?ctrl=accueil&amp;marque=Renault">Renault</a></li>
+					<li><a href="index.php?ctrl=accueil&amp;marque=Peugeot">Peugeot</a></li>
 				</ul>
 			</nav>	
   		</header>
+
+
+<?php
+
+if (isset($_POST['recherche'])) {
+    $cherche = $_POST['barre'];
+    $req = "SELECT * FROM article where nom OR categorie LIKE '%$cherche%";
+
+	$resultat = $fonction_sql()->executeRequete($req);
+	while($ligne = $resultat->fetch_assoc()){
+		echo $ligne['nom'] . "<br>";
+		echo $ligne['categorie'] . "<br>";
+	}
+		
+}
+
+?>

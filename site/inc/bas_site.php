@@ -1,8 +1,8 @@
 		<footer>
 			<!--A PROPOS-->
-			<a href="../vue/aPropos.php">A Propos</a>
-			<a href="../vue/contact.php">Contact</a>
-			<a href="../vue/aide.php">Aide</a>
+			<a href="accueil/apropos">A Propos</a>
+			<a href="accueil/contact">Contact</a>
+			<a href="accueil/aide">Aide</a>
 		</footer>
 
 	</body>

@@ -106,7 +106,7 @@ require_once(ROOT."inc/haut_site.php");
 				</thead>
 				<tbody>
 					<tr>
-						<td style=" text-align:justify">Vos questions ne figurent pas, remplissez et envoyer nous le formulaire (<a href="formulaire.php?type=signaler">ici</a>) et nous vous repondrons le plus rapidement possible.</td>
+						<td style=" text-align:justify">Vos questions ne figurent pas, remplissez et envoyer nous le formulaire (<a href="utilisateurs/signaler">ici</a>) et nous vous repondrons le plus rapidement possible.</td>
 					</tr>
 				</tbody>
 			</table>

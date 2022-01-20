@@ -1,6 +1,8 @@
 <?php 
 //--------------------------------- AFFICHAGE HTML ---------------------------------//
 require_once(ROOT."inc/haut_site.php"); 
+require_once(ROOT."inc/Initialisation.php"); 
+$init = new Initialisation();
 ?>
 	<main style="height:auto; padding:50px; padding-top:10px; padding-bottom:10px">
 		<section id="sectionAPanier">		
@@ -9,7 +11,7 @@ require_once(ROOT."inc/haut_site.php");
 			<div id="">
 			<?php
 			// si un client est connecté
-			if($fonction_sql->utilisateurEstConnecte()){
+			if($init->utilisateurEstConnecte()){
 				echo "<table border='1' style='border-collapse: collapse; text-align:center' cellpadding='7'>";
 				echo "<tr><td colspan='5'>Votre panier</td></tr>";
 				echo "<tr><th>Nom du produit</th><th>N° de produit</th><th>Quantité</th><th>Prix Unitaire</th><th>Action</th></tr>";
@@ -38,53 +40,8 @@ require_once(ROOT."inc/haut_site.php");
 				echo "<i>Réglement par CHÈQUE uniquement à l'adresse suivante : XXX rue de france voiture 75XXX PARIS</i><br>";
 				
 				//----------------------------------------------TRAITEMENT--------------------------------------------------------//
-				
-				//ajouter article dans panier
-				if(isset($_POST['ajouter_panier'])) {
-					$resultat = $fonction_sql->executeRequete("SELECT * FROM article WHERE idArticle='$_POST[idArticle]'");
-					$article = $resultat->fetch_assoc();
-					$fonction_sql->ajouterProduitDansPanier($article['nom'],$_POST['idArticle'],$_POST['nbArticle'],$article['prix']);
-					echo("<meta http-equiv='refresh' content='1'>");
-				}	
-				//si client veut vider son panier
-				if(isset($_GET['action']) && $_GET['action'] == "vider") {
-					unset($_SESSION['panier']);
-					$monId = $_SESSION['client']['idClient'];
-					$fonction_sql->executeRequete("DELETE from avoir_panier where idClient = $monId");
-					header("location:panier.php?");
-					// echo("<meta http-equiv='refresh' content='0'>");
-				}
-				//si client a remplit les infos pour valider son panier et valide
-				if(isset($_POST['valider_commande'])) {
-					$fonction_sql->debug($_POST);
-					$montant = $fonction_sql->montantTotal();
-					$monId = $_SESSION['client']['idClient'];
-					if($_POST['livraison'] == "standard") {
-						$jour = 7;
-					}
-					else {
-						$jour = 3;
-						$montant+=2;
-					}
-					
-					if($fonction_sql->executeRequete("INSERT INTO commande (montant, numeroRue, nomRue, cp, ville, dateLivraisonPrevu) 
-					values('$montant', '$_POST[num_ad]', '$_POST[nom_rue]', '$_POST[cp_ad]', '$_POST[ville]', DATE_ADD( CURDATE(), INTERVAL $jour DAY))")) {
-						$req_commande = $fonction_sql->executeRequete("SELECT distinct idCommande from commande where cp = $_POST[cp_ad] and dateLivraisonPrevu = DATE_ADD(CURDATE(), INTERVAL $jour DAY)");
-						if($req_commande->num_rows == 1) {
-							$fonction_sql->executeRequete("INSERT INTO valider (idCommande, idClient, dateCommande) values( 
-								(SELECT distinct idCommande from commande where cp = $_POST[cp_ad] and dateLivraisonPrevu = DATE_ADD(CURDATE(), INTERVAL $jour DAY)),
-								 $monId, curdate() )");
-							header("location:panier.php?action=vider");
-						}
-					}
-				}
-				//si client desire supprimer un article
-				if(isset($_GET['action']) && isset($_GET['id_article']) && $_GET['action']=="retirer") {
-					$fonction_sql->retirerProduitDuPanier($_GET['id_article']);
-					echo("<meta http-equiv='refresh' content='1'>");
-				}
-
 			}
+			
 			// si aucun client est connecté
 			else {
 				echo "
@@ -97,9 +54,10 @@ require_once(ROOT."inc/haut_site.php");
 					vous n\'avez pas encore de compte, <a href"inscription.php">"inscrivez-vous"</a>.
 				</p>';
 			}
+			
 			?>
 			</div>
 		</section>
 	</main>
 
-<?php require_once("../inc/bas_site.php"); ?>
+<?php require_once(ROOT."inc/bas_site.php"); ?>

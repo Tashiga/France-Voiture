@@ -8,18 +8,18 @@ require_once("./inc/haut_site.php");
                 <section id="haut-accueil">
                     <section id="voiture" >
                         <div id="citroen">
-                            <a href="boutique.php?marque=Citroen"> 
+                            <a href="index.php?ctrl=accueil&amp;marque=Citroen"> 
                                 <img id="img-citroen-accueil" src="inc/img/logoCitroen.png" class="img_accueil" alt="">
                             </a>
                         </div>
                         <div id="droite">
                             <div id="renault-accueil">
-                                <a href="boutique.php?marque=Renault"> 
+                                <a href="index.php?ctrl=accueil&amp;marque=Renault"> 
                                     <img id="img-renault-accueil" src="inc/img/logoRenault.jpg" class="img_accueil" alt="">
                                 </a>
                             </div>
                             <div id="peugeot-accueil">
-                                <a href="boutique.php?marque=Peugeot"> 
+                                <a href="index.php?ctrl=accueil&amp;marque=Peugeot"> 
                                     <img id="img-peugeot-accueil" src="inc/img/logoPeugeot.png" class="img_accueil" alt="">
                                 </a>
                             </div>

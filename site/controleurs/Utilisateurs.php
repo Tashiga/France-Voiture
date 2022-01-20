@@ -1,12 +1,14 @@
 <?php
 require_once(ROOT."modeles/Utilisateur.php");
+require_once(ROOT."inc/Initialisation.php");
 
 
 class Utilisateurs extends Controleur {
     private $modele;
-
+    private $init; 
     function __construct(){
         $this->modele = new Utilisateur();
+        $this->init = new Initialisation();
     }
 
     function connexion(){
@@ -18,7 +20,7 @@ class Utilisateurs extends Controleur {
                 $table = 'vendeur';
             }
             else {
-                $table = 'acheteur';
+                $table = 'client';
             }
 
             $data = [
@@ -69,7 +71,7 @@ class Utilisateurs extends Controleur {
         $this->render("inscription");
 
         if($_POST) {
-            $this->fonction_sql->debug($_POST);
+            //$this->fonction_sql->debug($_POST);
 
             $data = [
                 'nom' => $_POST['nom'],
@@ -104,24 +106,37 @@ class Utilisateurs extends Controleur {
 
     function panier(){
 
+        $this->render("panier");
 
-        if($_SESSION['client']['statut'] ==0) {
-            //completer son panier si pas vide
-            $monIdentifiant = $_SESSION['client']['idClient'];
-            $req_panier = $fonction_sql->executeRequete("SELECT * FROM avoir_panier natural join article where idClient = $monIdentifiant");
-            //si panier contient articles
-            if($req_panier->num_rows > 0) {
-                //pour chaque article du panier
-                $panier = $req_panier->fetch_assoc();
-                for($i = 1; $i <= $req_panier->num_rows; $i++) {
-                    $fonction_sql->recupererPanier($panier['nom'], $panier['idArticle'], $panier['nbArticle'], $panier['montant']);
+        if($this->init->utilisateurEstConnecte()) {
+            if($_SESSION['client']['statut'] ==0) {
+                //completer son panier si pas vide
+
+
+
+                // attention client acheteur
+                $monIdentifiant = $_SESSION['client']['idClient'];
+
+
+                echo $monIdentifiant;
+                $req_panier = $this->modele->get_panier($monIdentifiant);
+                //si panier contient articles
+                if($req_panier->num_rows > 0) {
+                    //pour chaque article du panier
+                    $panier = $req_panier->fetch_assoc();
+                    for($i = 1; $i <= $req_panier->num_rows; $i++) {
+                        $this->init->recupererPanier($panier['nom'], $panier['idArticle'], $panier['nbArticle'], $panier['montant']);
+                    }
                 }
             }
         }
         
-
     }
 
+
+    function signaler(){
+        $this->render("formulaire_aide");
+    }
 
     function deconnexion(){
         session_destroy();
@@ -129,4 +144,69 @@ class Utilisateurs extends Controleur {
         echo "vous êtes déconnecté $redirect";
     }
 
+    function ajout_panier(){
+
+        //ajouter article dans panier
+        if(isset($_POST['ajouter_panier'])) {
+            $resultat = $this->modele->ajouter_panier($_POST['idArticle']);
+            $article = $resultat->fetch_assoc();
+            $this->init->ajouterProduitDansPanier($article['nom'],$_POST['idArticle'],$_POST['nbArticle'],$article['prix']);
+            echo("<meta http-equiv='refresh' content='1'>");
+        }	
+
+    }
+
+    function vide_panier(){
+        //si client veut vider son panier
+        if(isset($_GET['action']) && $_GET['action'] == "vider") {
+            unset($_SESSION['panier']);
+            $monId = $_SESSION['client']['idClient'];
+            $this->modele->vider_panier($monId);
+            //header("location:panier.php?");
+            // echo("<meta http-equiv='refresh' content='0'>");
+        }
+    }
+        
+        
+    function valider_panier(){
+
+        //si client a remplit les infos pour valider son panier et valide
+        if(isset($_POST['valider_commande'])) {
+            $fonction_sql->debug($_POST);
+            $montant = $this->init->montantTotal();
+            $monId = $_SESSION['client']['idClient'];
+            if($_POST['livraison'] == "standard") {
+                $jour = 7;
+            }
+            else {
+                $jour = 3;
+                $montant+=2;
+            }
+
+
+        $data = [
+            '$montant' => $montant, 
+            'num_ad' => $_POST['num_ad'], 
+            'nom_rue' => $_POST['nom_rue'], 
+            'cp_ad' => $_POST['cp_ad'], 
+            'ville' => $_POST['ville'],
+            'jour' => $jour,
+            'id' => $monId
+        ];
+
+        $this->modele->inserer_infos_commande($data);
+        header("location:panier.php?action=vider");
+
+    }
+    
+    function panier_supprimer(){
+        //si client desire supprimer un article
+        if(isset($_GET['action']) && isset($_GET['id_article']) && $_GET['action']=="retirer") {
+            $this->init->retirerProduitDuPanier($_GET['id_article']);
+            echo("<meta http-equiv='refresh' content='1'>");
+        }
+    }
+
+}
+    
 }

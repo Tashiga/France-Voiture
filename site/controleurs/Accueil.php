@@ -4,6 +4,9 @@ class Accueil extends Controleur{
     private $modele;
 
     function __construct(){
+        if(isset($_GET['marque'])){
+            $this->boutique();
+        }
         
     }
 
@@ -21,5 +24,8 @@ class Accueil extends Controleur{
 
     function apropos(){
         $this->render('apropos');
+    }
+    function boutique(){
+        $this->render('boutique');
     }
 }

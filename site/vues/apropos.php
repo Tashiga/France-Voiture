@@ -40,7 +40,7 @@ require_once(ROOT."inc/haut_site.php");
 			
 			<p>Notre objectif est de permettre à nos clients de vendre et d'acheter des pièces détachées de voiture de manière rapide et sécurisé.</p>
 			<H4><a href="aide.php">Besoin d'aide ?</a></H4>
-			<p>En cas d'urgence, veuillez nous contacter <a href = "contact.php">ici</a> ou a remplir un formulaire <a href="formulaire.php?type=signaler">ici</a>.</p>
+			<p>En cas d'urgence, veuillez nous contacter <a href = "contact.php">ici</a> ou a remplir un formulaire <a href="utilisateurs/signaler">ici</a>.</p>
 		</section>
 	</main>
 

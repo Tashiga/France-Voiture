@@ -24,7 +24,7 @@ $init = new Initialisation();
 						<tr id="table">
 							<td><a href= "./profil/informations">Mes informations</button></td>
 							<td><a href= "./profil/commandes">Mes commandes</button></td>
-							<td><a href= "./messagerie/C">Mes discussions</button></td>
+							<td><a href= "./messagerie/discussions">Mes discussions</button></td>
 							<td><a href= "./profil/notes">Mes notes attribuées</button></td>
 						</tr>
 					</tbody>

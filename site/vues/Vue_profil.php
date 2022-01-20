@@ -83,6 +83,28 @@ class Vue_profil{
 		<?php
 	}
 
+	function modifierInformations() {
+		?>
+
+		
+		<form action="profil.php?action=informations&modif=infos" method="post">
+			<label for="nom">Nom :</label>
+			<input type="text" id="nom" name="nom" maxlength="20" placeholder="votre nom" pattern="[a-zA-Z0-9-_.]{1,20}" />
+			<br>
+			<label for="prenom">prénom :</label>
+			<input type="text" name="prenom" maxlength="20" placeholder="votre prenom" pattern="[a-zA-Z0-9-_.]{1,20}"/>
+			</br>
+			<label for="civilite">Civilité :</label>
+			<input name="civilite" value="M" type="radio"/>Homme
+			<input name="civilite" value="Mme" type="radio"/>Femme</br></br>
+			<label for="email">E-mail :</label>
+			<input type="email" name="email" size="33" maxlength="50" pattern=“[A-Za-Z0-9]{5}” placeholder="E-mail"></input><br>
+			<label for="password">Mot de passe :</label>
+			<input type="password" name="password" size="33" maxlength="50" pattern=“[A-Za-Z0-9]{5}” placeholder="Mot de passe"/><br><br><br><br>
+			<input class="a_changer" type="submit" name="modifier" value="Modifier"/>
+		</form>
+		<?php
+	}
 }
 
 

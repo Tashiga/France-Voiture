@@ -18,6 +18,7 @@ class Profil extends Controleur {
             'email' => $_SESSION['client']['email']
         ];
         $this->vue->afficherInformations($infos);
+        $this->vue->modifierInformations();
     }
 
     function discussions(){

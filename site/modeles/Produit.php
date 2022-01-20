@@ -28,8 +28,9 @@ class Produit extends Fonction_sql{
     }
 
 
-    function get_photo($id_article){
-        $resultat = $this->executeRequete("SELECT * FROM photo NATURAL JOIN affiche WHERE idArticle = '$id_article'");
+    function get_photo(){
+        $idVendeur = $_SESSION['client']['idVendeur'];
+        $resultat = $this->executeRequete("SELECT * FROM photo NATURAL JOIN affiche NATURAL JOIN ajouter WHERE idVendeur = '$idVendeur'");
         return $resultat;
     }
 

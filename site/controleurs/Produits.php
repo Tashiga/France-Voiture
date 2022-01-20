@@ -31,7 +31,7 @@ class Produits extends Controleur{
         $this->render('prod/upload');
 
         if($_POST) {
-            $dossier = ROOT.'photos_articles/';
+            $dossier = 'photos_articles/';
             $taille_maxi = 1000000000;
             $taille = filesize($_FILES['avatar']['tmp_name']);
             $extensions = array('.png', '.gif', '.jpg', '.jpeg');
@@ -83,8 +83,23 @@ class Produits extends Controleur{
 
     function affichage(){
         $articles = $this->modele->get_produits();
-        //$chemin = $this->modele->get_photo($id);
-        $this->render("prod/affichage_liste", ['articles' => $articles]);
+        $chemin = $this->modele->get_photo();
+
+        /*
+        $tab = array();
+        $tab['cheminPhoto']=array();
+
+        while($f_ch=$chemin->fetch_assoc()){
+            if($f_ch = 'cheminPhoto'){
+
+                for($i=1 ; $i <=$chemin->num_rows ; $i++ ){
+                    $tab['cheminPhoto'][$i]=$f_ch["cheminPhoto"];
+                }
+            }
+            
+        }
+        */
+        $this->render("prod/affichage_liste", ['articles' => $articles, 'tab'=>$tab]);
     }
 
 

@@ -1,5 +1,5 @@
 <?php
-abstract class Fonction_sql{
+class Fonction_sql{
 	/*
     // infos BD
     private $dns = "mysql:host=localhost;dbname=FranceVoiture;";

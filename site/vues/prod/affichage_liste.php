@@ -16,7 +16,7 @@ require_once(ROOT."inc/haut_site.php");
             $contenu .= '<th>Photo</th>';
             while($colonne = $articles->fetch_field())
             {    
-                if($colonne->name != 'idvendeur') {
+                if($colonne->name != 'idvendeur' && $colonne->name !='idArticle') {
                     $contenu .= '<th>' . $colonne->name .'</th>';
                 }
             }
@@ -24,28 +24,23 @@ require_once(ROOT."inc/haut_site.php");
             $contenu .= '<th>Suppression</th>';
             $contenu .= '</tr>';
 
+            $n = 0;
             foreach ($articles as $article):
                 $contenu .= '<tr>';
-                $contenu .= '<td></td>';
-                    
+                $contenu .= '<td><img  class="icone" src="'.$tab["cheminPhoto"][$n].'"></td>';
+
                 foreach ($article as $indice => $information)
                 {
-                    echo " $indice ";
-                    if($indice != "idvendeur")
+                    if($indice != "idvendeur" && $indice != "idArticle" )
                     {
                         $contenu .= '<td>' . $information . '</td>';
-                    }
-                    if($indice == "cheminPhoto"){
-                        echo $indice;
-                        echo "natacha";
-                        $indice .= '<td><img  class="icone" src="'.$indice.'"></td>';
-
                     }
                 }
                 
                 $contenu .= '<td><a class="a_changer" href="./index.php?ctrl=produits&amp;action=modification&amp;id_article=' . $article['idArticle'] .'">Modifier</a></td>';
                 $contenu .= '<td><a class="a_changer" href="./index.php?ctrl=produits&amp;action=suppression&amp;id_article=' . $article['idArticle'] .'" OnClick="return(confirm(\'En êtes vous certain de vouloir supprimer cet article ?\'));">Supprimer</a></td>';
                 $contenu .= '</tr>';
+            $n++;
             endforeach;
             echo $contenu;
 

@@ -1,6 +1,7 @@
 <?php 
 //--------------------------------- AFFICHAGE HTML ---------------------------------//
-require_once(ROOT."inc/haut_site.php"); 
+require_once(ROOT."inc/haut_site.php");
+$fonction_sql = new Fonction_sql();
 ?>
 <main style="height:auto; padding:30px;background:#f2f2f2;">
 	<section id="sectionBoutique">

@@ -27,5 +27,32 @@ class Utilisateur extends Fonction_sql{
         return $mdp_correcte;
     }
 
+    function get_panier($id){
+        $resultat = $this->executeRequete("SELECT * FROM avoir_panier natural join article where idClient = $id");
+        return $resultat;
+    }
+
+    function ajouter_panier($data){
+        $resultat = $this->executeRequete("SELECT * FROM article WHERE idArticle='$data'");
+    }
+
+
+    function vider_panier($data){
+        $resultat = $this->executeRequete("DELETE from avoir_panier where idClient = $data");
+    }
+
+    function inserer_infos_commande($data){
+
+        if($this->executeRequete("INSERT INTO commande (montant, numeroRue, nomRue, cp, ville, dateLivraisonPrevu) 
+        values('$data[montant]', '$data[num_ad]', '$data[nom_rue]', '$data[cp_ad]', '$data[ville]', 'DATE_ADD( CURDATE(), INTERVAL $data[jour] DAY)')")) {
+            $req_commande = $this->executeRequete("SELECT distinct idCommande from commande where cp = '$data[cp_ad]' and dateLivraisonPrevu = DATE_ADD(CURDATE(), INTERVAL '$data[jour] DAY')");
+            if($req_commande->num_rows == 1) {
+                $this->executeRequete("INSERT INTO valider (idCommande, idClient, dateCommande) values( 
+                    (SELECT distinct idCommande from commande where cp = '$data[cp_ad]' and dateLivraisonPrevu = DATE_ADD(CURDATE(), INTERVAL '$data[jour]' DAY)), '$data[id]', curdate())");
+            }
+        }
+
+    }
+
 }
 ?>
